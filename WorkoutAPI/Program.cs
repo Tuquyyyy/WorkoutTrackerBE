@@ -31,6 +31,15 @@ builder.Services.AddScoped<IWorkoutExerciseService, WorkoutExerciseService>();
 builder.Services.AddScoped<IWorkoutCommentsService, WorkoutCommentsService>(); 
 builder.Services.AddScoped<IScheduleWorkoutService, ScheduleWorkoutService>();
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -70,6 +79,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseMiddleware<CustomExceptionMiddleware>();
 app.UseHttpsRedirection();
+app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 ApplyMigration();

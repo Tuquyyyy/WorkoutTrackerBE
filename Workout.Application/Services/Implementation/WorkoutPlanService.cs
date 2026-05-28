@@ -68,15 +68,16 @@ namespace Workout.Application.Services.Implementation
 
         }
 
-        public async Task<Result<IEnumerable<WorkoutPlanResponseDto>>> GenerateReport(ClaimsPrincipal user)
+        public async Task<Result<WorkoutReportDto>> GenerateReport(ClaimsPrincipal user)
         {
             Result<Guid> result = _authService.GetUserId(user);
             if (result.IsFailure)
             {
-                return Result<IEnumerable<WorkoutPlanResponseDto>>.Failure(result.Error);
+                return Result<WorkoutReportDto>.Failure(result.Error);
             }
-            IEnumerable<WorkoutPlanResponseDto> workoutPlanResponseDtos = await _unitOfWork.workoutPlans.GenerateReport(result.Values);
-            return Result<IEnumerable<WorkoutPlanResponseDto>>.Success(workoutPlanResponseDtos);
+            // Lấy dữ liệu báo cáo dạng WorkoutReportDto từ Repository
+            WorkoutReportDto reportDto = await _unitOfWork.workoutPlans.GenerateReport(result.Values);
+            return Result<WorkoutReportDto>.Success(reportDto);
         }
 
         public async Task<Result<WorkoutPlanDto>> GetByWorkouPlanId(Guid workoutPlanId, ClaimsPrincipal user)

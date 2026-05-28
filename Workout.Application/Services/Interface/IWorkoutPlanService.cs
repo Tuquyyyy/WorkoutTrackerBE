@@ -16,7 +16,7 @@ namespace Workout.Application.Services.Interface
         Task<Result<string>> UpdateWorkoutPlan(WorkoutPlanDto model, ClaimsPrincipal user);
         Task<Result<string>> DeleteWorkoutPlan(Guid workoutPlanId, ClaimsPrincipal user);
         Task<Result<WorkoutPlanDto>> GetByWorkouPlanId(Guid workoutPlanId, ClaimsPrincipal user);
-        Task<Result<IEnumerable<WorkoutPlanResponseDto>>> GenerateReport(ClaimsPrincipal user);
+        Task<Result<WorkoutReportDto>> GenerateReport(ClaimsPrincipal user);
         Task<Result<IEnumerable<WorkoutPlanResponseDto>>> GetWorkoutsbyUserId(ClaimsPrincipal user);
         Task<Result<WorkoutPlan>> CheckAccess(Guid? workoutPlanId, Guid userId);
         Task<WorkoutPlan?> CheckName(string name, Guid userId);

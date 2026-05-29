@@ -43,9 +43,10 @@ namespace WorkoutAPI.Controllers
             return Ok(response.Values);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Put([FromBody] WorkoutExerciseDto model)
+        [HttpPut("{id:Guid}")]
+        public async Task<IActionResult> Put(Guid id, [FromBody] WorkoutExerciseDto model)
         {
+            model.Id = id; 
             var response = await _workoutExerciseService.UpdateWorkoutExercise(model, User);
             if (response.IsFailure)
             {

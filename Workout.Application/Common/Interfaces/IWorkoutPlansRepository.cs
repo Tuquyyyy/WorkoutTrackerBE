@@ -12,7 +12,7 @@ namespace Workout.Application.Common.Interfaces
         void Update(WorkoutPlan model);
 
         Task<IEnumerable<WorkoutPlanResponseDto>> GetAllWorkoutsByUserId(Guid userId);
-        Task<IEnumerable<WorkoutPlanResponseDto>> GenerateReport(Guid userId);
+        Task<WorkoutReportDto> GenerateReport(Guid userId);
     }
 
 }

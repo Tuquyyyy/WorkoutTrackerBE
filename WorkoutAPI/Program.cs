@@ -30,7 +30,11 @@ builder.Services.AddScoped<IWorkoutPlanService, WorkoutPlanService>();
 builder.Services.AddScoped<IWorkoutExerciseService, WorkoutExerciseService>();
 builder.Services.AddScoped<IWorkoutCommentsService, WorkoutCommentsService>(); 
 builder.Services.AddScoped<IScheduleWorkoutService, ScheduleWorkoutService>();
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+    });
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>

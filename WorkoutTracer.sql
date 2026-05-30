@@ -8,7 +8,7 @@ DELETE FROM [dbo].[exercises];
 DBCC CHECKIDENT ('[dbo].[exercises]', RESEED, 0);
 -- pas5word-*123
 INSERT INTO [dbo].[users] ([Id], [FullName], [Email], [UserName], [Password]) VALUES
-('11111111-1111-1111-1111-111111111111', 'Nguyen Van A', 'Nguyen Van A', 'user@example.com', 'AQAAAAIAAYagAAAAEBcU/xof49BqYC/l4xY39c3CfAPaNGssQONUYlU6MALNX7e9Bihk2R2kF+3Qz2N9kw=='); 
+('11111111-1111-1111-1111-111111111111', 'Nguyen Van A', 'user@example.com', 'nguyenvana', 'AQAAAAIAAYagAAAAEBcU/xof49BqYC/l4xY39c3CfAPaNGssQONUYlU6MALNX7e9Bihk2R2kF+3Qz2N9kw=='); 
 
 INSERT INTO [dbo].[exercises] ([Name], [Description], [Category]) VALUES
 ('Barbell Bench Press', 'A classic compound lift targeting the chest, shoulders, and triceps.', 'Chest'), -- ID = 1
@@ -57,19 +57,23 @@ INSERT INTO [dbo].[workoutExercises] ([Id], [ExerciseId], [WorkoutId], [Sets], [
 ('DA222222-2222-2222-2222-222222222222', 17, 'F4444444-4444-4444-4444-444444444444', 1, 15, 0.00), -- Assault Bike Interval (ID 17)
 ('DA333333-3333-3333-3333-333333333333', 16, 'F4444444-4444-4444-4444-444444444444', 3, 60, 0.00); -- Plank (ID 16)
 
-INSERT INTO [dbo].[scheduleWorkouts] ([Id], [ScheduledDate], [WorkoutId]) VALUES
+INSERT INTO [dbo].[scheduleWorkouts] ([Id], [ScheduledDate], [WorkoutId], [IsCompleted]) VALUES
 ('C1111111-1111-1111-1111-111111111111', 
  DATEADD(hh, 8, DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - 4, 0)), 
- 'F1111111-1111-1111-1111-111111111111'),
+ 'F1111111-1111-1111-1111-111111111111', 
+ 1), 
 ('C2222222-2222-2222-2222-222222222222', 
  DATEADD(mi, 30, DATEADD(hh, 17, DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - 3, 0))), 
- 'F2222222-2222-2222-2222-222222222222'),
+ 'F2222222-2222-2222-2222-222222222222', 
+ 1), 
 ('C3333333-3333-3333-3333-333333333333', 
  DATEADD(hh, 9, DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - 2, 0)), 
- 'F3333333-3333-3333-3333-333333333333'),
+ 'F3333333-3333-3333-3333-333333333333', 
+ 1), 
 ('C4444444-4444-4444-4444-444444444444', 
  DATEADD(hh, 16, DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - 1, 0)), 
- 'F4444444-4444-4444-4444-444444444444');
+ 'F4444444-4444-4444-4444-444444444444', 
+ 1); 
 
 INSERT INTO [dbo].[workoutComments] ([Id], [WorkoutId], [Comment], [Date]) VALUES
 ('B1111111-1111-1111-1111-111111111111', 'F1111111-1111-1111-1111-111111111111', 'Bench press felt heavy today. Will stick to 80kg next week.', '2026-05-20 09:30:00'),

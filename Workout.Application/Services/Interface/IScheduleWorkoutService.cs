@@ -16,6 +16,6 @@ namespace Workout.Application.Services.Interface
         Task<Result<string>> SetWorkoutSchedule(ScheduleWorkoutDto model, ClaimsPrincipal user);
         Task<Result<string>> UpdateScheduledWorkout(ScheduleWorkoutDto model, ClaimsPrincipal user);
         Task<Result<string>> DeleteScheduledWorkout(Guid scheduleWorkoutId, ClaimsPrincipal user);
-
+        Task<Result<string>> CompleteWorkout(Guid scheduleWorkoutId, ClaimsPrincipal user);
     }
 }

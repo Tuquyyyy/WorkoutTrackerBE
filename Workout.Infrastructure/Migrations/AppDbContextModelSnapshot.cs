@@ -125,6 +125,9 @@ namespace Workout.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("ScheduledDate")
                         .HasColumnType("datetime2");
 

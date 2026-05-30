@@ -63,5 +63,13 @@ namespace WorkoutAPI.Controllers
             }
             return Ok(response.Values);
         }
+
+        [HttpPut("{id:Guid}/complete")]
+        public async Task<IActionResult> Complete(Guid id)
+        {
+            var response = await _scheduleWorkoutService.CompleteWorkout(id, User);
+            if (response.IsFailure) return BadRequest(response.Error);
+            return Ok(response.Values);
+        }
     }
 }

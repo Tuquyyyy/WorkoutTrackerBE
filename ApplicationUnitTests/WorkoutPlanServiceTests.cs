@@ -138,6 +138,14 @@ namespace ApplicationUnitTests
         [Fact]
         public async Task GenerateReport_WithValidUser_ShouldReturnSuccessResult()
         {
+            var mockResponse = new WorkoutReportDto
+            {
+                TotalWorkouts = 4,
+                TotalVolume = 19240,
+                StreakDays = 4,
+                WeeklyWorkouts = new List<WeeklyWorkoutDto>(),
+                RecentActivity = new List<RecentActivityDto>()
+            };
             // Arrange
             var userId = Guid.NewGuid();
             var user = CreateUserClaimsPrincipal(userId);
@@ -145,8 +153,8 @@ namespace ApplicationUnitTests
 
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
-            _unitOfWorkMock.Setup(u => u.workoutPlans.GenerateReport(userId))
-                .ReturnsAsync(workoutPlans);
+            _unitOfWorkMock.Setup(u => u.workoutPlans.GenerateReport(It.IsAny<Guid>()))
+               .ReturnsAsync(mockResponse);
 
             // Act
             var result = await _workoutPlanService.GenerateReport(user);

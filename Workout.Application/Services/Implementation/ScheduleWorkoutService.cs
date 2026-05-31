@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using System.Security.Claims;
 using Workout.Application.Common.Dto;
 using Workout.Application.Common.Interfaces;
@@ -94,8 +94,14 @@ namespace Workout.Application.Services.Implementation
 
             if (model.ScheduledDate < DateTime.Today) return Result<string>.Failure(ScheduleWorkoutError.InvalidDate);
 
-            ScheduleWorkout scheduleWorkout = ScheduleWorkout.Update((Guid)model.Id, model.ScheduledDate, model.WorkoutId, accessResult.Values.IsCompleted);
-            _unitOfWork.scheduleWorkouts.Update(scheduleWorkout);
+            ScheduleWorkout existingSchedule = accessResult.Values;
+            existingSchedule.ScheduledDate = model.ScheduledDate;
+            if (model.WorkoutId != Guid.Empty)
+            {
+                existingSchedule.WorkoutId = model.WorkoutId;
+            }
+
+            _unitOfWork.scheduleWorkouts.Update(existingSchedule);
             await _unitOfWork.Save();
 
             return Result<string>.Success("Scheduled workout updated successfully.");

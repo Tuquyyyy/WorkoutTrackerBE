@@ -1,4 +1,4 @@
-﻿using Azure;
+using Azure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Workout.Application.Common.Dto;
@@ -58,9 +58,10 @@ namespace WorkoutAPI.Controllers
         }
 
      
-        [HttpPut]
-        public async Task<IActionResult> Put([FromBody] WorkoutPlanDto workoutPlanDto)
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Put(Guid id, [FromBody] WorkoutPlanDto workoutPlanDto)
         {
+            workoutPlanDto.Id = id;
             var response = await _workoutPlanService.UpdateWorkoutPlan(workoutPlanDto, User);
             if (response.IsFailure)
             {

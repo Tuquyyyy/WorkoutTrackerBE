@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using System.Reflection;
 using System.Security.Claims;
 using Workout.Application.Common.Dto;
@@ -22,31 +22,32 @@ namespace Workout.Application.Services.Implementation
             _mapper = mapper;
             _authService = authService;
         }
-        public async Task<Result<string>> AddWorkoutPlan(WorkoutPlanDto model, ClaimsPrincipal user)
+        public async Task<Result<WorkoutPlanDto>> AddWorkoutPlan(WorkoutPlanDto model, ClaimsPrincipal user)
         {
 
             Result<Guid> result = _authService.GetUserId(user);
             if (result.IsFailure)
             {
-                return Result<string>.Failure(result.Error);
+                return Result<WorkoutPlanDto>.Failure(result.Error);
             }
 
             if (string.IsNullOrWhiteSpace(model.Description) || string.IsNullOrWhiteSpace(model.Name))
             {
-                return Result<string>.Failure(WorkoutPlanError.InvalidInputs);
+                return Result<WorkoutPlanDto>.Failure(WorkoutPlanError.InvalidInputs);
             }
             
             var existingPlan = await CheckName(model.Name, result.Values);
             if (existingPlan != null)
             {
-                return Result<string>.Failure(WorkoutPlanError.WorkoutPlanNameAlreadyExists);
+                return Result<WorkoutPlanDto>.Failure(WorkoutPlanError.WorkoutPlanNameAlreadyExists);
             }
 
             WorkoutPlan workoutPlan = WorkoutPlan.Create(model.Name, model.Description, result.Values);
             await _unitOfWork.workoutPlans.Add(workoutPlan);
             await _unitOfWork.Save();
 
-            return Result<string>.Success("WorkoutPlan added successfully.");
+            WorkoutPlanDto workoutPlanDto = _mapper.Map<WorkoutPlanDto>(workoutPlan);
+            return Result<WorkoutPlanDto>.Success(workoutPlanDto);
         }
 
         public async Task<Result<string>> DeleteWorkoutPlan(Guid workoutPlanId, ClaimsPrincipal user)
@@ -137,8 +138,9 @@ namespace Workout.Application.Services.Implementation
                     return Result<string>.Failure(WorkoutPlanError.WorkoutPlanNameAlreadyExists);
                 }
             }
-            WorkoutPlan data = WorkoutPlan.Update((Guid)model.Id,model.Name, model.Description, result.Values);
-            _unitOfWork.workoutPlans.Update(data);
+            workoutPlan.Name = model.Name;
+            workoutPlan.Description = model.Description;
+            _unitOfWork.workoutPlans.Update(workoutPlan);
             await _unitOfWork.Save();
             return Result<string>.Success("WorkoutPlan updated successfully");
         }

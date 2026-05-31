@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Reflection;
 using System.Security.Claims;
@@ -106,8 +106,11 @@ namespace Workout.Application.Services.Implementation
                 return Result<string>.Failure(CommentsError.CommentsCannotBeEmpty);
             }
 
-            WorkoutComments workoutComments = WorkoutComments.Update((Guid)model.Id,model.WorkoutId, model.Comment);
-            _unitOfWork.workoutsComments.Update(workoutComments);
+            WorkoutComments existingComment = accessResult.Values;
+            existingComment.Comment = model.Comment;
+            existingComment.Date = DateTime.Now;
+
+            _unitOfWork.workoutsComments.Update(existingComment);
             await _unitOfWork.Save();
 
             return Result<string>.Success("Comment updated successfully");

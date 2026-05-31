@@ -83,12 +83,15 @@ namespace ApplicationUnitTests
             _unitOfWorkMock.Setup(u => u.workoutPlans.Get(It.IsAny<Expression<Func<WorkoutPlan, bool>>>()))
                 .ReturnsAsync((WorkoutPlan)null);
 
+            var expectedDto = new WorkoutPlanDto { Id = Guid.NewGuid(), Name = "New Plan", Description = "Plan Description", UserId = userId };
+            _mapperMock.Setup(m => m.Map<WorkoutPlanDto>(It.IsAny<WorkoutPlan>())).Returns(expectedDto);
+
             // Act
             var result = await _workoutPlanService.AddWorkoutPlan(model, user);
 
             // Assert
             result.IsSuccess.Should().BeTrue();
-            result.Values.Should().Be("WorkoutPlan added successfully.");
+            result.Values.Should().Be(expectedDto);
         }
 
         [Fact]

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,5 +22,14 @@ namespace Workout.Application.Errors
 
         public static readonly Error IncorrectPassword = new Error(
             "Credentials", "Incorrect password");
+
+        public static readonly Error UserNotFound = new Error(
+            "NotFound", "User not found");
+
+        public static readonly Error PasswordMismatch = new Error(
+            "Validation", "Old password does not match");
+
+        public static readonly Error EmailAlreadyExists = new Error(
+            "Conflict", "Email is already in use");
     }
 }

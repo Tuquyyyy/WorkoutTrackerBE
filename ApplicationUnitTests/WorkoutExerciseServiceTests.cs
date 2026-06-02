@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNetCore.Routing;
 using System;
 using System.Collections.Generic;
@@ -104,8 +104,8 @@ namespace ApplicationUnitTests
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
 
-            _unitOfWorkMock.Setup(u => u.workoutExercises.Get(It.IsAny<Expression<Func<WorkoutExercise, bool>>>()))
-                .ReturnsAsync((WorkoutExercise)null);
+            _unitOfWorkMock.Setup(u => u.workoutExercises.Get(It.IsAny<Expression<Func<WorkoutExercise, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
+                .ReturnsAsync((WorkoutExercise?)null);
 
             // Act
             var result = await _workoutExerciseService.DeleteWorkoutExercise(workoutExerciseId, user);
@@ -127,7 +127,7 @@ namespace ApplicationUnitTests
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
 
-            _unitOfWorkMock.Setup(u => u.workoutExercises.Get(It.IsAny<Expression<Func<WorkoutExercise, bool>>>()))
+            _unitOfWorkMock.Setup(u => u.workoutExercises.Get(It.IsAny<Expression<Func<WorkoutExercise, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
                 .ReturnsAsync(workoutExercise);
 
             // Act

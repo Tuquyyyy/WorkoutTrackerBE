@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +9,6 @@ namespace Workout.Application.Common.Interfaces
 {
     public interface IAuthRepository : IRepository<User>
     {
-        
+        void Update(User model);
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +11,15 @@ namespace Workout.Infrastructure.Repository
 {
     public class AuthRepository : Repository<User>, IAuthRepository
     {
+        private readonly AppDbContext _db;
         public AuthRepository(AppDbContext db) : base(db)
         {
+            _db = db;
+        }
+
+        public void Update(User model)
+        {
+            _db.users.Update(model);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -14,5 +14,7 @@ namespace Workout.Application.Services.Interface
         Task<Result<LoginResponseDto>> Login(LoginRequestDto loginRequest);
         Task<Result<string>> Register(RegisterRequestDto request);
         Result<Guid> GetUserId(ClaimsPrincipal user);
+        Task<Result<string>> ChangePassword(Guid userId, ChangePasswordDto model);
+        Task<Result<LoginResponseDto>> UpdateProfile(Guid userId, UpdateProfileDto model);
     }
 }

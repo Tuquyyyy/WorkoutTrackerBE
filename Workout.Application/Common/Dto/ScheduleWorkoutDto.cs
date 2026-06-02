@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +11,7 @@ namespace Workout.Application.Common.Dto
         public Guid? Id { get; set; }
         public DateTime ScheduledDate { get; set; }
         public Guid WorkoutId { get; set; }
+        public string? WorkoutName { get; set; }
+        public bool IsCompleted { get; set; }
     }
 }

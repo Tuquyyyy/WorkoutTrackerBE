@@ -69,7 +69,7 @@ namespace Workout.Application.Services.Implementation
                 return Result<string>.Failure(accessResult.Error);
             }
 
-            if (model.ScheduledDate < DateTime.Today) return Result<string>.Failure(ScheduleWorkoutError.InvalidDate);
+            if (model.ScheduledDate.ToLocalTime().Date < DateTime.Today) return Result<string>.Failure(ScheduleWorkoutError.InvalidDate);
 
             ScheduleWorkout scheduleWorkout = ScheduleWorkout.Create(model.ScheduledDate,model.WorkoutId);
             await _unitOfWork.scheduleWorkouts.Add(scheduleWorkout);
@@ -92,7 +92,7 @@ namespace Workout.Application.Services.Implementation
                 return Result<string>.Failure(accessResult.Error);
             }
 
-            if (model.ScheduledDate < DateTime.Today) return Result<string>.Failure(ScheduleWorkoutError.InvalidDate);
+            if (model.ScheduledDate.ToLocalTime().Date < DateTime.Today) return Result<string>.Failure(ScheduleWorkoutError.InvalidDate);
 
             ScheduleWorkout existingSchedule = accessResult.Values;
             existingSchedule.ScheduledDate = model.ScheduledDate;
@@ -110,7 +110,7 @@ namespace Workout.Application.Services.Implementation
         private async Task<Result<ScheduleWorkout>> CheckAccess(Guid? sheduleWorkouId, Guid userId)
         {
             ScheduleWorkout scheduleWorkout = await _unitOfWork.scheduleWorkouts.Get(wp => wp.Id == sheduleWorkouId
-                                               && wp.Workout.UserId == userId);
+                                               && wp.Workout.UserId == userId, trackChanges: true);
             if (scheduleWorkout == null)
             {
                 return Result<ScheduleWorkout>.Failure(ScheduleWorkoutError.ScheduleNotFound);
@@ -122,7 +122,7 @@ namespace Workout.Application.Services.Implementation
         {
             Result<Guid> getUserResult = _authService.GetUserId(user);
             if (getUserResult.IsFailure) return Result<string>.Failure(getUserResult.Error);
-            var schedule = await _unitOfWork.scheduleWorkouts.Get(s => s.Id == scheduleWorkoutId && s.Workout.UserId == getUserResult.Values);
+            var schedule = await _unitOfWork.scheduleWorkouts.Get(s => s.Id == scheduleWorkoutId && s.Workout.UserId == getUserResult.Values, trackChanges: true);
             if (schedule == null) return Result<string>.Failure(ScheduleWorkoutError.ScheduleNotFound);
             schedule.IsCompleted = true;
             _unitOfWork.scheduleWorkouts.Update(schedule);

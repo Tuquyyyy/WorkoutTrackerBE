@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace Workout.Infrastructure.Repository
 
         public async Task<IEnumerable<WorkoutComments>> GetWorkoutComments(Guid workoutId)
         {
-            return await _db.workoutComments.Where(workout => workout.WorkoutId == workoutId).ToListAsync();
+            return await _db.workoutComments.Include(c => c.User).Where(workout => workout.WorkoutId == workoutId).ToListAsync();
         }
 
         public void Update(WorkoutComments model)

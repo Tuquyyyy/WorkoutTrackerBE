@@ -104,8 +104,8 @@ namespace ApplicationUnitTests
 
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
-            _unitOfWorkMock.Setup(u => u.workoutPlans.Get(It.IsAny<Expression<Func<WorkoutPlan, bool>>>()))
-                .ReturnsAsync((WorkoutPlan)null);
+            _unitOfWorkMock.Setup(u => u.workoutPlans.Get(It.IsAny<Expression<Func<WorkoutPlan, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
+                .ReturnsAsync((WorkoutPlan?)null);
 
             // Act
             var result= await _workoutPlanService.DeleteWorkoutPlan(workoutPlanId, user);
@@ -127,7 +127,7 @@ namespace ApplicationUnitTests
 
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
-            _unitOfWorkMock.Setup(u => u.workoutPlans.Get(It.IsAny<Expression<Func<WorkoutPlan, bool>>>()))
+            _unitOfWorkMock.Setup(u => u.workoutPlans.Get(It.IsAny<Expression<Func<WorkoutPlan, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
                 .ReturnsAsync(workoutPlan);
 
             // Act
@@ -178,7 +178,7 @@ namespace ApplicationUnitTests
 
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
-            _unitOfWorkMock.Setup(u => u.workoutPlans.Get(It.IsAny<Expression<Func<WorkoutPlan, bool>>>()))
+            _unitOfWorkMock.Setup(u => u.workoutPlans.Get(It.IsAny<Expression<Func<WorkoutPlan, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
                 .ReturnsAsync(workoutPlan);
 
             var workoutPlanDto = new WorkoutPlanDto();

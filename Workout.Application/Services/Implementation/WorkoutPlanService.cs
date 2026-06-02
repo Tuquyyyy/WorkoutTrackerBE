@@ -147,7 +147,7 @@ namespace Workout.Application.Services.Implementation
 
         public async Task<Result<WorkoutPlan>> CheckAccess(Guid? workoutPlanId, Guid userId) 
         {
-            WorkoutPlan workoutPlan = await _unitOfWork.workoutPlans.Get(wp => wp.Id == workoutPlanId && wp.UserId == userId);
+            WorkoutPlan workoutPlan = await _unitOfWork.workoutPlans.Get(wp => wp.Id == workoutPlanId && wp.UserId == userId, trackChanges: true);
             if (workoutPlan == null)
             {
                 return Result<WorkoutPlan>.Failure(WorkoutPlanError.WorkoutPlanNotFound);

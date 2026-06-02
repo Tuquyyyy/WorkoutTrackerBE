@@ -1,72 +1,67 @@
-using Azure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Workout.Application.Common.Dto;
 using Workout.Application.Services.Interface;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using WorkoutAPI.Common;
+using Asp.Versioning;
 
 namespace WorkoutAPI.Controllers
 {
-    [Route("api/workout-comments")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/workout-comments")]
     [ApiController]
     [Authorize]
     public class WorkoutCommentsController : ControllerBase
     {
         private readonly IWorkoutCommentsService _workoutCommentsService;
-        private readonly ResponseDto _response;
         public WorkoutCommentsController(IWorkoutCommentsService workoutCommentsService)
         {
-            _workoutCommentsService = workoutCommentsService;  
-            _response = new();
+            _workoutCommentsService = workoutCommentsService;
         }
 
         [HttpGet("{workout_id:guid}")]
-        public async Task<IActionResult> Get(Guid workout_id)
+        public async Task<ActionResult<ApiResponse<IEnumerable<WorkoutCommentsDto>>>> Get(Guid workout_id)
         {
             var response = await _workoutCommentsService.GetWorkoutCommentsByWorkoutId(workout_id, User);
             if (response.IsFailure)
             {
-                return BadRequest(response.Error);
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
             }
-            return Ok(response.Values);
+            return Ok(ApiResponse<IEnumerable<WorkoutCommentsDto>>.Ok(response.Values));
         }
 
-
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] WorkoutCommentsDto workoutCommentsDto)
+        public async Task<ActionResult<ApiResponse<string>>> Post([FromBody] WorkoutCommentsDto workoutCommentsDto)
         {
             var response = await _workoutCommentsService.AddWorkoutComment(workoutCommentsDto, User);
             if (response.IsFailure)
             {
-                return BadRequest(response.Error);
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
             }
-            return Ok(response.Values);
+            return Ok(ApiResponse<string>.Ok(response.Values));
         }
 
-
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> Put(Guid id, [FromBody] WorkoutCommentsDto workoutCommentsDto)
+        public async Task<ActionResult<ApiResponse<string>>> Put(Guid id, [FromBody] WorkoutCommentsDto workoutCommentsDto)
         {
             workoutCommentsDto.Id = id;
             var response = await _workoutCommentsService.UpdateWorkoutComment(workoutCommentsDto, User);
             if (response.IsFailure)
             {
-                return BadRequest(response.Error);
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
             }
-            return Ok(response.Values);
+            return Ok(ApiResponse<string>.Ok(response.Values));
         }
 
-
         [HttpDelete("{workout_comment_id:guid}")]
-        public async Task<IActionResult> Delete(Guid workout_comment_id)
+        public async Task<ActionResult<ApiResponse<string>>> Delete(Guid workout_comment_id)
         {
             var response = await _workoutCommentsService.DeleteWorkoutComment(workout_comment_id, User);
             if (response.IsFailure)
             {
-                return BadRequest(response.Error);
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
             }
-            return Ok(response.Values);
+            return Ok(ApiResponse<string>.Ok(response.Values));
         }
     }
 }

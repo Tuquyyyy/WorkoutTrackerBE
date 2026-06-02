@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.Net;
 using Workout.Application.Common.Dto;
 
@@ -22,7 +22,10 @@ namespace WorkoutAPI.Middleware
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong: {ex}");
+                _logger.LogError(ex, "Unhandled exception on {Method} {Path}: {Message}",
+                    httpContext.Request.Method,
+                    httpContext.Request.Path,
+                    ex.Message);
                 await HandleExceptionAsync(httpContext, ex);
             }
         }

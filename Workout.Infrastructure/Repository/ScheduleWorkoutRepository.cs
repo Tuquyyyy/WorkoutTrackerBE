@@ -22,7 +22,10 @@ namespace Workout.Infrastructure.Repository
         {
             IEnumerable<ScheduleWorkout> data = await _db.scheduleWorkouts
                      .Include(sw => sw.Workout)
-                     .Where(sw => sw.ScheduledDate >= DateTime.Now && sw.Workout.UserId == UserId)
+                     .Where(sw => (
+                         sw.ScheduledDate.Date >= DateTime.Today
+                         || !sw.IsCompleted
+                     ) && sw.Workout.UserId == UserId)
                      .OrderBy(sw => sw.ScheduledDate)
                      .ToListAsync();
             return data;

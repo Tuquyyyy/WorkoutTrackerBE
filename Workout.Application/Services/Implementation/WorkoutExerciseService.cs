@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using System.Security.Claims;
 using Workout.Application.Common.Dto;
 using Workout.Application.Common.Interfaces;
@@ -96,8 +96,14 @@ namespace Workout.Application.Services.Implementation
                 return Result<string>.Failure(updateResult.Error);
             }
 
-            WorkoutExercise workoutExercise = WorkoutExercise.Update((Guid)model.Id,model.ExerciseId, model.WorkoutId, model.Sets, model.Repetitions, model.Weight);
-            _unitOfWork.workoutExercises.Update(workoutExercise);
+            WorkoutExercise existingExercise = updateResult.Values;
+            if (model.ExerciseId != 0) existingExercise.ExerciseId = model.ExerciseId;
+            if (model.WorkoutId != Guid.Empty) existingExercise.WorkoutId = model.WorkoutId;
+            existingExercise.Sets = model.Sets;
+            existingExercise.Repetitions = model.Repetitions;
+            existingExercise.Weight = model.Weight;
+
+            _unitOfWork.workoutExercises.Update(existingExercise);
             await _unitOfWork.Save();
             return Result<string>.Success("Workout exercise updated successfully");
         }

@@ -1,4 +1,4 @@
-﻿
+
 using Workout.Domain.Entities;
 using Workout.Infrastructure.Data;
 using Workout.Application.Common.Interfaces;
@@ -19,7 +19,7 @@ namespace Workout.Infrastructure.Repository
             var schedules = await _db.scheduleWorkouts
                 .Include(s => s.Workout) 
                     .ThenInclude(w => w.WorkoutExercises)
-                .Where(s => s.Workout.UserId == userId)
+                .Where(s => s.Workout.UserId == userId && s.IsCompleted == true)
                 .ToListAsync();
 
             if (!schedules.Any())
@@ -70,17 +70,14 @@ namespace Workout.Infrastructure.Repository
 
         public async Task<IEnumerable<WorkoutPlanResponseDto>> GetAllWorkoutsByUserId(Guid userId)
         {
-            IEnumerable<WorkoutPlanResponseDto> data = await _db.scheduleWorkouts
+            IEnumerable<WorkoutPlanResponseDto> data = await _db.workoutPlans
                      .AsNoTrackingWithIdentityResolution()
-                     .Where(sw => sw.Workout.UserId == userId)
-                     .OrderByDescending(sw => sw.ScheduledDate)
-                     .Select(sw => new WorkoutPlanResponseDto
+                     .Where(wp => wp.UserId == userId)
+                     .Select(wp => new WorkoutPlanResponseDto
                      {
-                         Id = sw.WorkoutId,
-                         Name = sw.Workout.Name,
-                         Description = sw.Workout.Description,
-                         ScheduledDate = sw.ScheduledDate
-
+                         Id = wp.Id,
+                         Name = wp.Name,
+                         Description = wp.Description
                      })
                      .ToListAsync();
             return data;

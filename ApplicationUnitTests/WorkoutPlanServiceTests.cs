@@ -83,12 +83,15 @@ namespace ApplicationUnitTests
             _unitOfWorkMock.Setup(u => u.workoutPlans.Get(It.IsAny<Expression<Func<WorkoutPlan, bool>>>()))
                 .ReturnsAsync((WorkoutPlan)null);
 
+            var expectedDto = new WorkoutPlanDto { Id = Guid.NewGuid(), Name = "New Plan", Description = "Plan Description", UserId = userId };
+            _mapperMock.Setup(m => m.Map<WorkoutPlanDto>(It.IsAny<WorkoutPlan>())).Returns(expectedDto);
+
             // Act
             var result = await _workoutPlanService.AddWorkoutPlan(model, user);
 
             // Assert
             result.IsSuccess.Should().BeTrue();
-            result.Values.Should().Be("WorkoutPlan added successfully.");
+            result.Values.Should().Be(expectedDto);
         }
 
         [Fact]
@@ -138,6 +141,14 @@ namespace ApplicationUnitTests
         [Fact]
         public async Task GenerateReport_WithValidUser_ShouldReturnSuccessResult()
         {
+            var mockResponse = new WorkoutReportDto
+            {
+                TotalWorkouts = 4,
+                TotalVolume = 19240,
+                StreakDays = 4,
+                WeeklyWorkouts = new List<WeeklyWorkoutDto>(),
+                RecentActivity = new List<RecentActivityDto>()
+            };
             // Arrange
             var userId = Guid.NewGuid();
             var user = CreateUserClaimsPrincipal(userId);
@@ -145,8 +156,8 @@ namespace ApplicationUnitTests
 
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
-            _unitOfWorkMock.Setup(u => u.workoutPlans.GenerateReport(userId))
-                .ReturnsAsync(workoutPlans);
+            _unitOfWorkMock.Setup(u => u.workoutPlans.GenerateReport(It.IsAny<Guid>()))
+               .ReturnsAsync(mockResponse);
 
             // Act
             var result = await _workoutPlanService.GenerateReport(user);

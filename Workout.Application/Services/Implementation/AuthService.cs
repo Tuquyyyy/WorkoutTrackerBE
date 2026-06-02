@@ -37,7 +37,10 @@ namespace Workout.Application.Services.Implementation
 
         public async Task<Result<LoginResponseDto>> Login(LoginRequestDto loginRequest)
         {
-            User user = await _unitOfWork.auth.Get(u => u.UserName.ToLower() == loginRequest.UserName.ToLower());
+            User user = await _unitOfWork.auth.Get(u =>
+                u.UserName.ToLower() == loginRequest.UserName.ToLower()
+                || u.Email.ToLower() == loginRequest.UserName.ToLower()
+            );
             if (user == null)
             {
                 return Result<LoginResponseDto>.Failure(AuthError.UserNameNotExist);

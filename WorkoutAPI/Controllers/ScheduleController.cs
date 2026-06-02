@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Workout.Application.Common.Dto;
 using Workout.Application.Services.Interface;
@@ -42,9 +42,10 @@ namespace WorkoutAPI.Controllers
             return Ok(response.Values);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Put([FromBody] ScheduleWorkoutDto scheduleWorkoutDto)
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Put(Guid id, [FromBody] ScheduleWorkoutDto scheduleWorkoutDto)
         {
+            scheduleWorkoutDto.Id = id;
             var response =  await _scheduleWorkoutService.UpdateScheduledWorkout(scheduleWorkoutDto, User);
             if (response.IsFailure)
             {
@@ -61,6 +62,14 @@ namespace WorkoutAPI.Controllers
             {
                 return BadRequest(response.Error);
             }
+            return Ok(response.Values);
+        }
+
+        [HttpPut("{id:guid}/complete")]
+        public async Task<IActionResult> Complete(Guid id)
+        {
+            var response = await _scheduleWorkoutService.CompleteWorkout(id, User);
+            if (response.IsFailure) return BadRequest(response.Error);
             return Ok(response.Values);
         }
     }

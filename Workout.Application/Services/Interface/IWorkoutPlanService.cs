@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -12,7 +12,7 @@ namespace Workout.Application.Services.Interface
 {
     public interface IWorkoutPlanService
     {
-        Task<Result<string>> AddWorkoutPlan(WorkoutPlanDto model, ClaimsPrincipal user);
+        Task<Result<WorkoutPlanDto>> AddWorkoutPlan(WorkoutPlanDto model, ClaimsPrincipal user);
         Task<Result<string>> UpdateWorkoutPlan(WorkoutPlanDto model, ClaimsPrincipal user);
         Task<Result<string>> DeleteWorkoutPlan(Guid workoutPlanId, ClaimsPrincipal user);
         Task<Result<WorkoutPlanDto>> GetByWorkouPlanId(Guid workoutPlanId, ClaimsPrincipal user);

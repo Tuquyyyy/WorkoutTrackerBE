@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using System.Security.Claims;
 using Workout.Application.Common.Dto;
 using Workout.Application.Common.Interfaces;
@@ -15,6 +15,7 @@ namespace Workout.Application.Services.Implementation
         private readonly IUnitOfWork _unitOfWork;
         private readonly IAuthService _authService;
         private readonly IWorkoutPlanService _workoutPlanService;
+
         public ScheduleWorkoutService(IUnitOfWork unitOfWork, IMapper mapper,IAuthService authService, IWorkoutPlanService workoutPlanService)
         {
             _unitOfWork = unitOfWork;
@@ -22,6 +23,7 @@ namespace Workout.Application.Services.Implementation
             _authService = authService;
             _workoutPlanService = workoutPlanService;
         }
+
         public async Task<Result<string>> DeleteScheduledWorkout(Guid scheduleWorkoutId, ClaimsPrincipal user)
         {
             Result<Guid> getUserResult = _authService.GetUserId(user);
@@ -92,8 +94,14 @@ namespace Workout.Application.Services.Implementation
 
             if (model.ScheduledDate < DateTime.Today) return Result<string>.Failure(ScheduleWorkoutError.InvalidDate);
 
-            ScheduleWorkout scheduleWorkout = ScheduleWorkout.Update((Guid)model.Id,model.ScheduledDate, model.WorkoutId);
-            _unitOfWork.scheduleWorkouts.Update(scheduleWorkout);
+            ScheduleWorkout existingSchedule = accessResult.Values;
+            existingSchedule.ScheduledDate = model.ScheduledDate;
+            if (model.WorkoutId != Guid.Empty)
+            {
+                existingSchedule.WorkoutId = model.WorkoutId;
+            }
+
+            _unitOfWork.scheduleWorkouts.Update(existingSchedule);
             await _unitOfWork.Save();
 
             return Result<string>.Success("Scheduled workout updated successfully.");
@@ -109,5 +117,18 @@ namespace Workout.Application.Services.Implementation
             }
             return Result<ScheduleWorkout>.Success(scheduleWorkout);
         }
+
+        public async Task<Result<string>> CompleteWorkout(Guid scheduleWorkoutId, ClaimsPrincipal user)
+        {
+            Result<Guid> getUserResult = _authService.GetUserId(user);
+            if (getUserResult.IsFailure) return Result<string>.Failure(getUserResult.Error);
+            var schedule = await _unitOfWork.scheduleWorkouts.Get(s => s.Id == scheduleWorkoutId && s.Workout.UserId == getUserResult.Values);
+            if (schedule == null) return Result<string>.Failure(ScheduleWorkoutError.ScheduleNotFound);
+            schedule.IsCompleted = true;
+            _unitOfWork.scheduleWorkouts.Update(schedule);
+            await _unitOfWork.Save();
+            return Result<string>.Success("Congratulations! You have completed the training session.");
+        }
+
     }
 }

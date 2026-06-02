@@ -55,10 +55,10 @@ In this project, the Result Pattern is implemented to handle the flow of operati
   - **Request Body**:
     ```json
     {
-      "userName": "string",
-      "email": "string",
-      "fullName": "string",
-      "password": "string"
+      "userName": "user@example.com",
+      "email": "user@example.com",
+      "fullName": "Nguyen Van A",
+      "password": "pas5word-*123"
     }
     ```
 ### Exercise

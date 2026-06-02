@@ -8,7 +8,9 @@ DELETE FROM [dbo].[exercises];
 DBCC CHECKIDENT ('[dbo].[exercises]', RESEED, 0);
 -- pas5word-*123
 INSERT INTO [dbo].[users] ([Id], [FullName], [Email], [UserName], [Password]) VALUES
+
 ('11111111-1111-1111-1111-111111111111', 'Nguyen Van A', 'user@example.com', 'nguyenvana', 'AQAAAAIAAYagAAAAEBcU/xof49BqYC/l4xY39c3CfAPaNGssQONUYlU6MALNX7e9Bihk2R2kF+3Qz2N9kw=='); 
+
 
 INSERT INTO [dbo].[exercises] ([Name], [Description], [Category]) VALUES
 ('Barbell Bench Press', 'A classic compound lift targeting the chest, shoulders, and triceps.', 'Chest'), -- ID = 1

@@ -47,8 +47,10 @@ namespace Workout.Application.Services.Implementation
             }
             UserDto applicationUser = new UserDto
             {
+                Id = user.Id,
                 Name = user.FullName,
-                UserName = user.UserName 
+                UserName = user.UserName,
+                Email = user.Email
             };
             var result = _passwordHasher.VerifyHashedPassword(applicationUser, user.Password, loginRequest.Password);
 
@@ -164,8 +166,10 @@ namespace Workout.Application.Services.Implementation
             var token = _jwtTokenGenerator.GenerateToken(user);
             var updatedUserDto = new UserDto
             {
+                Id = user.Id,
                 Name = user.FullName,
-                UserName = user.UserName
+                UserName = user.UserName,
+                Email = user.Email
             };
 
             return Result<LoginResponseDto>.Success(new LoginResponseDto

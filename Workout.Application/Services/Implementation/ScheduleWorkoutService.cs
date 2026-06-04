@@ -56,6 +56,19 @@ namespace Workout.Application.Services.Implementation
 
         }
 
+        public async Task<Result<IEnumerable<ScheduleWorkoutDto>>> GetSchedulesByWorkoutId(Guid workoutId, ClaimsPrincipal user)
+        {
+            Result<Guid> getUserResult = _authService.GetUserId(user);
+            if (getUserResult.IsFailure)
+            {
+                return Result<IEnumerable<ScheduleWorkoutDto>>.Failure(getUserResult.Error);
+            }
+            IEnumerable<ScheduleWorkout> scheduleWorkouts = await _unitOfWork.scheduleWorkouts.GetScheduleWorkouts(getUserResult.Values);
+            IEnumerable<ScheduleWorkoutDto> filtered = _mapper.Map<IEnumerable<ScheduleWorkoutDto>>(scheduleWorkouts)
+                .Where(s => s.WorkoutId == workoutId);
+            return Result<IEnumerable<ScheduleWorkoutDto>>.Success(filtered);
+        }
+
         public async Task<Result<string>> SetWorkoutSchedule(ScheduleWorkoutDto model, ClaimsPrincipal user)
         {
             Result<Guid> getUserResult = _authService.GetUserId(user);

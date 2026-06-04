@@ -30,6 +30,17 @@ namespace WorkoutAPI.Controllers
             return Ok(ApiResponse<IEnumerable<ScheduleWorkoutDto>>.Ok(response.Values));
         }
 
+        [HttpGet("workout/{workoutId:guid}")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<ScheduleWorkoutDto>>>> GetByWorkoutId(Guid workoutId)
+        {
+            var response = await _scheduleWorkoutService.GetSchedulesByWorkoutId(workoutId, User);
+            if (response.IsFailure)
+            {
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
+            }
+            return Ok(ApiResponse<IEnumerable<ScheduleWorkoutDto>>.Ok(response.Values));
+        }
+
         [HttpPost]
         public async Task<ActionResult<ApiResponse<string>>> Post([FromBody] ScheduleWorkoutDto scheduleWorkoutDto)
         {

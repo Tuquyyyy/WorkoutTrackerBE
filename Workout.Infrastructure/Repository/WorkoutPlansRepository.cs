@@ -115,7 +115,12 @@ namespace Workout.Infrastructure.Repository
                      {
                          Id = wp.Id,
                          Name = wp.Name,
-                         Description = wp.Description
+                         Description = wp.Description,
+                         ScheduledDate = _db.scheduleWorkouts
+                            .Where(sw => sw.WorkoutId == wp.Id && !sw.IsCompleted)
+                            .OrderBy(sw => sw.ScheduledDate)
+                            .Select(sw => sw.ScheduledDate)
+                            .FirstOrDefault()
                      })
                      .ToListAsync();
             return data;

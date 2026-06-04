@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +16,15 @@ namespace Workout.Application.Services
             var mappingConfig = new MapperConfiguration(config =>
             {
                 config.CreateMap<WorkoutPlan, WorkoutPlanDto>().ReverseMap();
-                config.CreateMap<WorkoutExercise, WorkoutExerciseDto>().ReverseMap();
-                config.CreateMap<WorkoutComments, WorkoutCommentsDto>().ReverseMap(); 
-                config.CreateMap<ScheduleWorkout, ScheduleWorkoutDto>().ReverseMap();
+                config.CreateMap<WorkoutExercise, WorkoutExerciseDto>()
+                    .ForMember(dest => dest.ExerciseName, opt => opt.MapFrom(src => src.Exercise != null ? src.Exercise.Name : null))
+                    .ReverseMap();
+                config.CreateMap<WorkoutComments, WorkoutCommentsDto>()
+                    .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User != null ? src.User.FullName : null))
+                    .ReverseMap(); 
+                config.CreateMap<ScheduleWorkout, ScheduleWorkoutDto>()
+                    .ForMember(dest => dest.WorkoutName, opt => opt.MapFrom(src => src.Workout != null ? src.Workout.Name : null))
+                    .ReverseMap();
 
 
             });

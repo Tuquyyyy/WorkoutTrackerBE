@@ -44,7 +44,7 @@ namespace Workout.Application.Services.Implementation
             }
 
 
-            WorkoutComments workoutComments = WorkoutComments.Create(model.WorkoutId,model.Comment);
+            WorkoutComments workoutComments = WorkoutComments.Create(model.WorkoutId, getUserResult.Values, model.Comment);
             await _unitOfWork.workoutsComments.Add(workoutComments);
             await _unitOfWork.Save();
 
@@ -117,7 +117,7 @@ namespace Workout.Application.Services.Implementation
         }
         private async Task<Result<WorkoutComments>> CheckAccess(Guid? workoutCommentId, Guid userId)
         {
-            WorkoutComments workoutComments = await _unitOfWork.workoutsComments.Get(wp => wp.Id == workoutCommentId && wp.Workout.UserId == userId);
+            WorkoutComments workoutComments = await _unitOfWork.workoutsComments.Get(wp => wp.Id == workoutCommentId && wp.Workout.UserId == userId, trackChanges: true);
             if (workoutComments == null)
             {
                 return Result<WorkoutComments>.Failure(CommentsError.CommentNotFound);

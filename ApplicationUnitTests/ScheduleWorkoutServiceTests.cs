@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,8 +100,8 @@ namespace ApplicationUnitTests
             var user = CreateUserClaimsPrincipal(userId);
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
-            _unitOfWorkMock.Setup(u => u.scheduleWorkouts.Get(It.IsAny<Expression<Func<ScheduleWorkout, bool>>>()))
-                .ReturnsAsync((ScheduleWorkout)null);
+            _unitOfWorkMock.Setup(u => u.scheduleWorkouts.Get(It.IsAny<Expression<Func<ScheduleWorkout, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
+                .ReturnsAsync((ScheduleWorkout?)null);
 
             // Act
             var result =  await _scheduleWorkoutService.DeleteScheduledWorkout(scheduleWorkoutId, user);
@@ -120,7 +120,7 @@ namespace ApplicationUnitTests
             var user = CreateUserClaimsPrincipal(userId);
             var scheduleWorkout = ScheduleWorkout.Create(DateTime.Today.AddDays(1), Guid.NewGuid());
 
-            _unitOfWorkMock.Setup(u => u.scheduleWorkouts.Get(It.IsAny<Expression<Func<ScheduleWorkout, bool>>>()))
+            _unitOfWorkMock.Setup(u => u.scheduleWorkouts.Get(It.IsAny<Expression<Func<ScheduleWorkout, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
                 .ReturnsAsync(scheduleWorkout);
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
@@ -167,7 +167,7 @@ namespace ApplicationUnitTests
             var user = CreateUserClaimsPrincipal(userId);
             var scheduleWorkout = new ScheduleWorkout(Guid.NewGuid(),DateTime.Today.AddDays(1),model.WorkoutId);
 
-            _unitOfWorkMock.Setup(u => u.scheduleWorkouts.Get(It.IsAny<Expression<Func<ScheduleWorkout, bool>>>()))
+            _unitOfWorkMock.Setup(u => u.scheduleWorkouts.Get(It.IsAny<Expression<Func<ScheduleWorkout, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
                 .ReturnsAsync(scheduleWorkout);
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Workout.Application.Common.Dto;
 using Workout.Application.Common.Interfaces;
@@ -47,8 +47,10 @@ namespace Workout.Application.Services.Implementation
             }
             UserDto applicationUser = new UserDto
             {
+                Id = user.Id,
                 Name = user.FullName,
-                UserName = user.UserName 
+                UserName = user.UserName,
+                Email = user.Email
             };
             var result = _passwordHasher.VerifyHashedPassword(applicationUser, user.Password, loginRequest.Password);
 
@@ -102,9 +104,79 @@ namespace Workout.Application.Services.Implementation
             await _unitOfWork.Save();
 
             return Result<string>.Success("User registered successfully");
-
         }
 
-       
+        public async Task<Result<string>> ChangePassword(Guid userId, ChangePasswordDto model)
+        {
+            var user = await _unitOfWork.auth.Get(u => u.Id == userId, trackChanges: true);
+            if (user == null)
+            {
+                return Result<string>.Failure(AuthError.UserNotFound);
+            }
+
+            var applicationUser = new UserDto
+            {
+                Name = user.FullName,
+                UserName = user.UserName
+            };
+
+            var verificationResult = _passwordHasher.VerifyHashedPassword(applicationUser, user.Password, model.OldPassword);
+            if (verificationResult != PasswordVerificationResult.Success)
+            {
+                return Result<string>.Failure(AuthError.PasswordMismatch);
+            }
+
+            user.Password = _passwordHasher.HashPassword(applicationUser, model.NewPassword);
+            _unitOfWork.auth.Update(user);
+            await _unitOfWork.Save();
+
+            return Result<string>.Success("Password updated successfully");
+        }
+
+        public async Task<Result<LoginResponseDto>> UpdateProfile(Guid userId, UpdateProfileDto model)
+        {
+            var user = await _unitOfWork.auth.Get(u => u.Id == userId, trackChanges: true);
+            if (user == null)
+            {
+                return Result<LoginResponseDto>.Failure(AuthError.UserNotFound);
+            }
+
+            if (string.IsNullOrWhiteSpace(model.FullName) || string.IsNullOrWhiteSpace(model.Email))
+            {
+                return Result<LoginResponseDto>.Failure(AuthError.InvalidInputs);
+            }
+
+            if (EmailObject.Create(model.Email) == null)
+            {
+                return Result<LoginResponseDto>.Failure(AuthError.InvalidEmailFormat);
+            }
+
+            var existingWithEmail = await _unitOfWork.auth.Get(u => u.Email.ToLower() == model.Email.ToLower() && u.Id != userId);
+            if (existingWithEmail != null)
+            {
+                return Result<LoginResponseDto>.Failure(AuthError.EmailAlreadyExists);
+            }
+
+            user.FullName = model.FullName;
+            user.Email = model.Email;
+
+            _unitOfWork.auth.Update(user);
+            await _unitOfWork.Save();
+
+            var token = _jwtTokenGenerator.GenerateToken(user);
+            var updatedUserDto = new UserDto
+            {
+                Id = user.Id,
+                Name = user.FullName,
+                UserName = user.UserName,
+                Email = user.Email
+            };
+
+            return Result<LoginResponseDto>.Success(new LoginResponseDto
+            {
+                User = updatedUserDto,
+                Token = token
+            });
+        }
     }
 }

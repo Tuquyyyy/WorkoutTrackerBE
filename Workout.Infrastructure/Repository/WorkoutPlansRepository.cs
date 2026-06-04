@@ -58,11 +58,49 @@ namespace Workout.Infrastructure.Repository
                 .OrderBy(w => w.Week)
                 .ToList();
 
+            // Tính số buổi tập trong tuần này (bắt đầu từ Thứ Hai)
+            var startOfWeek = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Sunday)
+            {
+                startOfWeek = DateTime.Today.AddDays(-6);
+            }
+            int workoutsThisWeek = schedules.Count(s => s.ScheduledDate.Date >= startOfWeek && s.ScheduledDate.Date <= DateTime.Today);
+
+            // Tính chuỗi ngày tập liên tục (StreakDays)
+            var completedDates = schedules
+                .Select(s => s.ScheduledDate.Date)
+                .Distinct()
+                .OrderByDescending(d => d)
+                .ToList();
+
+            int streak = 0;
+            if (completedDates.Any())
+            {
+                var today = DateTime.Today;
+                var checkDate = completedDates.First();
+                if (checkDate == today || checkDate == today.AddDays(-1))
+                {
+                    streak = 1;
+                    for (int i = 1; i < completedDates.Count; i++)
+                    {
+                        if (completedDates[i - 1].AddDays(-1) == completedDates[i])
+                        {
+                            streak++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+
             return new WorkoutReportDto
             {
                 TotalWorkouts = totalWorkouts,
                 TotalVolume = totalVolume,
-                StreakDays = 4, 
+                StreakDays = streak,
+                WorkoutsThisWeek = workoutsThisWeek,
                 WeeklyWorkouts = weeklyWorkouts,
                 RecentActivity = recentActivity
             };
@@ -77,7 +115,12 @@ namespace Workout.Infrastructure.Repository
                      {
                          Id = wp.Id,
                          Name = wp.Name,
-                         Description = wp.Description
+                         Description = wp.Description,
+                         ScheduledDate = _db.scheduleWorkouts
+                            .Where(sw => sw.WorkoutId == wp.Id && !sw.IsCompleted)
+                            .OrderBy(sw => sw.ScheduledDate)
+                            .Select(sw => sw.ScheduledDate)
+                            .FirstOrDefault()
                      })
                      .ToListAsync();
             return data;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -15,5 +15,7 @@ namespace Workout.Application.Common.Dto
         public Guid WorkoutId { get; set; }
         public string Comment { get; set; }
         public DateTime? Date { get; set; }
+        public Guid? UserId { get; set; }
+        public string? UserName { get; set; }
     }
 }

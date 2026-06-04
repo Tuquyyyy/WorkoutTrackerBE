@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -17,5 +17,6 @@ namespace Workout.Application.Common.Dto
         public double Weight { get; set; }
         public int ExerciseId { get; set; }
         public Guid WorkoutId { get; set; }
+        public string? ExerciseName { get; set; }
     }
 }

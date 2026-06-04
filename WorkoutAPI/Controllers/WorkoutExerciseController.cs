@@ -1,69 +1,67 @@
-﻿using Azure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Workout.Application.Common.Dto;
-using Workout.Application.Services.Implementation;
 using Workout.Application.Services.Interface;
-using Workout.Domain.Entities;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using WorkoutAPI.Common;
+using Asp.Versioning;
 
 namespace WorkoutAPI.Controllers
 {
-    [Route("api/workout-exercises")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/workout-exercises")]
     [ApiController]
     [Authorize]
     public class WorkoutExerciseController : ControllerBase
     {
         private readonly IWorkoutExerciseService _workoutExerciseService;
-        private readonly ResponseDto _response;
         public WorkoutExerciseController(IWorkoutExerciseService workoutExerciseService)
         {
             _workoutExerciseService = workoutExerciseService;
-            _response = new();
         }
+
         [HttpGet("{workout_plan_id:Guid}")]
-        public async Task<IActionResult> Get(Guid workout_plan_id)
+        public async Task<ActionResult<ApiResponse<IEnumerable<WorkoutExerciseDto>>>> Get(Guid workout_plan_id)
         {
             var response = await _workoutExerciseService.GetWorkoutExerciseById(workout_plan_id, User);
             if (response.IsFailure)
             {
-                return BadRequest(response.Error);
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
             }
-            return Ok(response.Values);
+            return Ok(ApiResponse<IEnumerable<WorkoutExerciseDto>>.Ok(response.Values));
         }
+
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] WorkoutExerciseDto model)
+        public async Task<ActionResult<ApiResponse<string>>> Post([FromBody] WorkoutExerciseDto model)
         {
-            var response = await _workoutExerciseService.AddWorkoutExercise(model,User);
+            var response = await _workoutExerciseService.AddWorkoutExercise(model, User);
             if (response.IsFailure)
             {
-                return BadRequest(response.Error);
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
             }
-            return Ok(response.Values);
+            return Ok(ApiResponse<string>.Ok(response.Values));
         }
 
         [HttpPut("{id:Guid}")]
-        public async Task<IActionResult> Put(Guid id, [FromBody] WorkoutExerciseDto model)
+        public async Task<ActionResult<ApiResponse<string>>> Put(Guid id, [FromBody] WorkoutExerciseDto model)
         {
-            model.Id = id; 
+            model.Id = id;
             var response = await _workoutExerciseService.UpdateWorkoutExercise(model, User);
             if (response.IsFailure)
             {
-                return BadRequest(response.Error);
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
             }
-            return Ok(response.Values);
+            return Ok(ApiResponse<string>.Ok(response.Values));
         }
 
         [HttpDelete("{workout_exercise_id:Guid}")]
-        public async Task<IActionResult> Delete(Guid workout_exercise_id)
+        public async Task<ActionResult<ApiResponse<string>>> Delete(Guid workout_exercise_id)
         {
             var response = await _workoutExerciseService.DeleteWorkoutExercise(workout_exercise_id, User);
             if (response.IsFailure)
             {
-                return BadRequest(response.Error);
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
             }
-            return Ok(response.Values);
+            return Ok(ApiResponse<string>.Ok(response.Values));
         }
     }
 }

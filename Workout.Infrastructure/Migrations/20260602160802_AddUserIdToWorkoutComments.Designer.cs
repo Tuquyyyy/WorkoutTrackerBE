@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Workout.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using Workout.Infrastructure.Data;
 namespace Workout.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260602160802_AddUserIdToWorkoutComments")]
+    partial class AddUserIdToWorkoutComments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,128 +53,72 @@ namespace Workout.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            Category = "Chest",
-                            Description = "A classic compound chest exercise targeting pectorals, anterior deltoids, and triceps.",
-                            Name = "Barbell Bench Press"
+                            Category = "Strength",
+                            Description = "An exercise that targets the chest, shoulders, and triceps.",
+                            Name = "Push-up"
                         },
                         new
                         {
                             Id = 2,
-                            Category = "Chest",
-                            Description = "An upper chest focused exercise targeting the clavicular head of the pectoralis major.",
-                            Name = "Incline Dumbbell Press"
+                            Category = "Strength",
+                            Description = "A lower body exercise that targets the thighs and glutes.",
+                            Name = "Squat"
                         },
                         new
                         {
                             Id = 3,
-                            Category = "Chest",
-                            Description = "An isolation exercise for chest definition and stretching the pectoral muscles.",
-                            Name = "Cable Chest Fly"
+                            Category = "Strength",
+                            Description = "An upper body exercise that works the back and biceps.",
+                            Name = "Pull-up"
                         },
                         new
                         {
                             Id = 4,
-                            Category = "Legs",
-                            Description = "The king of lower body movements targeting quadriceps, glutes, hamstrings, and core.",
-                            Name = "Barbell Back Squat"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Category = "Legs",
-                            Description = "A machine-based lower body exercise prioritizing quadriceps and glutes with low spinal loading.",
-                            Name = "Leg Press"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Category = "Legs",
-                            Description = "An isolation machine exercise for developing definition in the quadriceps.",
-                            Name = "Leg Extensions"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Category = "Back",
-                            Description = "A fundamental compound movement targeting the entire posterior chain, lower back, and hamstrings.",
-                            Name = "Conventional Deadlift"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Category = "Back",
-                            Description = "An upper body vertical pull targeting the latissimus dorsi and biceps.",
-                            Name = "Lat Pulldown"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Category = "Back",
-                            Description = "A horizontal pulling movement for upper back thickness, lats, and rear deltoids.",
-                            Name = "Barbell Row"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Category = "Shoulders",
-                            Description = "A vertical pressing compound exercise for building strong shoulders, traps, and triceps.",
-                            Name = "Overhead Press"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Category = "Shoulders",
-                            Description = "An isolation exercise targeting the lateral deltoids for shoulder width.",
-                            Name = "Dumbbell Lateral Raise"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Category = "Arms",
-                            Description = "A classic arm isolation movement targeting the biceps brachii.",
-                            Name = "Barbell Bicep Curl"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Category = "Arms",
-                            Description = "An isolation movement focusing on the lateral and medial heads of the triceps.",
-                            Name = "Tricep Rope Pushdown"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Category = "Arms",
-                            Description = "An overhead elbow extension exercise prioritizing the long head of the triceps.",
-                            Name = "Incline Bench Skull Crushers"
-                        },
-                        new
-                        {
-                            Id = 15,
                             Category = "Core",
-                            Description = "An advanced abdominal movement targeting the lower rectus abdominis.",
-                            Name = "Hanging Leg Raise"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Category = "Core",
-                            Description = "An isometric core exercise targeting the transverse abdominis and lower back.",
+                            Description = "A core exercise that targets the abdominals and lower back.",
                             Name = "Plank"
                         },
                         new
                         {
-                            Id = 17,
-                            Category = "Cardio",
-                            Description = "High intensity cardiovascular interval training engaging both upper and lower body.",
-                            Name = "Assault Bike Interval"
+                            Id = 5,
+                            Category = "Strength",
+                            Description = "A lower body exercise that works the legs and glutes.",
+                            Name = "Lunge"
                         },
                         new
                         {
-                            Id = 18,
+                            Id = 6,
+                            Category = "Strength",
+                            Description = "An exercise that focuses on the biceps using weights.",
+                            Name = "Bicep Curl"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Category = "Strength",
+                            Description = "A strength exercise that targets the entire body, especially the back and legs.",
+                            Name = "Deadlift"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Category = "Strength",
+                            Description = "A chest exercise performed with a barbell or dumbbells.",
+                            Name = "Bench Press"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Category = "Core",
+                            Description = "An abdominal exercise that targets the upper abs.",
+                            Name = "Crunch"
+                        },
+                        new
+                        {
+                            Id = 10,
                             Category = "Cardio",
-                            Description = "Cardiovascular conditioning focused on running or walking.",
-                            Name = "Treadmill Run"
+                            Description = "A full-body exercise that combines a squat, push-up, and jump.",
+                            Name = "Burpee"
                         });
                 });
 
@@ -192,11 +139,7 @@ namespace Workout.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ScheduledDate")
-                        .HasDatabaseName("IX_ScheduleWorkouts_ScheduledDate");
-
-                    b.HasIndex("WorkoutId")
-                        .HasDatabaseName("IX_ScheduleWorkouts_WorkoutId");
+                    b.HasIndex("WorkoutId");
 
                     b.ToTable("scheduleWorkouts");
                 });
@@ -251,8 +194,7 @@ namespace Workout.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("WorkoutId")
-                        .HasDatabaseName("IX_WorkoutComments_WorkoutId");
+                    b.HasIndex("WorkoutId");
 
                     b.ToTable("workoutComments");
                 });
@@ -306,8 +248,7 @@ namespace Workout.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .HasDatabaseName("IX_WorkoutPlans_UserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("workoutPlans");
                 });
@@ -328,7 +269,7 @@ namespace Workout.Infrastructure.Migrations
                     b.HasOne("Workout.Domain.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Workout.Domain.Entities.WorkoutPlan", "Workout")

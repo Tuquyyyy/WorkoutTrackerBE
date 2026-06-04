@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNetCore.Routing;
 using System;
 using System.Collections.Generic;
@@ -103,8 +103,8 @@ namespace ApplicationUnitTests
             var user = CreateUserClaimsPrincipal(userId);
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
-            _unitOfWorkMock.Setup(u => u.workoutsComments.Get(It.IsAny<Expression<Func<WorkoutComments, bool>>>()))
-                .ReturnsAsync((WorkoutComments)null);
+            _unitOfWorkMock.Setup(u => u.workoutsComments.Get(It.IsAny<Expression<Func<WorkoutComments, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
+                .ReturnsAsync((WorkoutComments?)null);
 
             // Act
             var result = await _workoutCommentsService.DeleteWorkoutComment(workoutCommentId, user);
@@ -121,10 +121,10 @@ namespace ApplicationUnitTests
             var userId = Guid.NewGuid();
             var workoutCommentId = Guid.NewGuid();
             var user = CreateUserClaimsPrincipal(userId);
-            var workoutComment = WorkoutComments.Create(Guid.NewGuid(), "Nice session");
+            var workoutComment = WorkoutComments.Create(Guid.NewGuid(), userId, "Nice session");
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
-            _unitOfWorkMock.Setup(u => u.workoutsComments.Get(It.IsAny<Expression<Func<WorkoutComments, bool>>>()))
+            _unitOfWorkMock.Setup(u => u.workoutsComments.Get(It.IsAny<Expression<Func<WorkoutComments, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
                 .ReturnsAsync(workoutComment);
 
             // Act
@@ -142,7 +142,7 @@ namespace ApplicationUnitTests
             var userId = Guid.NewGuid();
             var workoutId = Guid.NewGuid();
             var user = CreateUserClaimsPrincipal(userId);
-            var workoutComments = new List<WorkoutComments>{WorkoutComments.Create(workoutId, "Nice session")};
+            var workoutComments = new List<WorkoutComments>{WorkoutComments.Create(workoutId, userId, "Nice session")};
             var workoutPlan = new WorkoutPlan(workoutId, "", "", userId);
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
@@ -167,11 +167,11 @@ namespace ApplicationUnitTests
             // Arrange
             var userId = Guid.NewGuid();
             var DtoModel = new WorkoutCommentsDto { Id = Guid.NewGuid(), WorkoutId = Guid.NewGuid(), Comment = "" };
-            var model = new WorkoutComments ( Guid.NewGuid(), Guid.NewGuid(), "" ,DateTime.Now);
+            var model = new WorkoutComments ( Guid.NewGuid(), Guid.NewGuid(), userId, "" ,DateTime.Now);
             var user = CreateUserClaimsPrincipal(userId);
             _authServiceMock.Setup(s => s.GetUserId(user))
                 .Returns(Result<Guid>.Success(userId));
-            _unitOfWorkMock.Setup(u => u.workoutsComments.Get(It.IsAny<Expression<Func<WorkoutComments, bool>>>()))
+            _unitOfWorkMock.Setup(u => u.workoutsComments.Get(It.IsAny<Expression<Func<WorkoutComments, bool>>>(), It.IsAny<bool>(), It.IsAny<string>()))
                 .ReturnsAsync(model);
 
             // Act

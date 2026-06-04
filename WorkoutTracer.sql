@@ -8,7 +8,7 @@ DELETE FROM [dbo].[exercises];
 DBCC CHECKIDENT ('[dbo].[exercises]', RESEED, 0);
 -- 123456
 INSERT INTO [dbo].[users] ([Id], [FullName], [Email], [UserName], [Password]) VALUES
-('11111111-1111-1111-1111-111111111111', 'Nguyen Van A', 'user@example.com', 'nguyenvana', 'AQAAAAIAAYagAAAAENTbY994xLX1ssr1jWTdkW2dC2czGuG9w6iDenfZgeFScGMTQq4t/EqVHyZykU2+qQ=='); 
+('11111111-1111-1111-1111-111111111111', 'User Full Name', 'user@example.com', 'testuser', 'AQAAAAIAAYagAAAAENTbY994xLX1ssr1jWTdkW2dC2czGuG9w6iDenfZgeFScGMTQq4t/EqVHyZykU2+qQ==');
 
 INSERT INTO [dbo].[exercises] ([Name], [Description], [Category]) VALUES
 ('Barbell Bench Press', 'A classic compound lift targeting the chest, shoulders, and triceps.', 'Chest'), -- ID = 1
@@ -75,7 +75,7 @@ INSERT INTO [dbo].[scheduleWorkouts] ([Id], [ScheduledDate], [WorkoutId], [IsCom
  'F4444444-4444-4444-4444-444444444444', 
  1); 
 
-INSERT INTO [dbo].[workoutComments] ([Id], [WorkoutId], [Comment], [Date]) VALUES
-('B1111111-1111-1111-1111-111111111111', 'F1111111-1111-1111-1111-111111111111', 'Bench press felt heavy today. Will stick to 80kg next week.', '2026-05-20 09:30:00'),
-('B2222222-2222-2222-2222-222222222222', 'F2222222-2222-2222-2222-222222222222', 'Leg press sets felt solid. Can potentially increase weight next session.', '2026-05-21 19:00:00'),
-('B3333333-3333-3333-3333-333333333333', 'F4444444-4444-4444-4444-444444444444', 'Extremely sweaty session, great cardio pacing!', '2026-05-24 17:15:00');
+INSERT INTO [dbo].[workoutComments] ([Id], [WorkoutId], [UserId], [Comment], [Date]) VALUES
+('B1111111-1111-1111-1111-111111111111', 'F1111111-1111-1111-1111-111111111111', '11111111-1111-1111-1111-111111111111', 'Bench press felt heavy today. Will stick to 80kg next week.', '2026-05-20 09:30:00'),
+('B2222222-2222-2222-2222-222222222222', 'F2222222-2222-2222-2222-222222222222', '11111111-1111-1111-1111-111111111111', 'Leg press sets felt solid. Can potentially increase weight next session.', '2026-05-21 19:00:00'),
+('B3333333-3333-3333-3333-333333333333', 'F4444444-4444-4444-4444-444444444444', '11111111-1111-1111-1111-111111111111', 'Extremely sweaty session, great cardio pacing!', '2026-05-24 17:15:00');

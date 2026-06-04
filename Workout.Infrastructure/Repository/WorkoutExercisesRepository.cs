@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Workout.Domain.Entities;
 using Workout.Infrastructure.Data;
 using Workout.Application.Common.Interfaces;
@@ -14,7 +14,7 @@ namespace Workout.Infrastructure.Repository
 
         public async Task<IEnumerable<WorkoutExercise>> GetWorkoutExercises(Guid workoutId, Guid userId)
         {
-            return await _db.workoutExercises.Where(workout => workout.WorkoutId == workoutId && workout.Workout.UserId==userId).ToListAsync();
+            return await _db.workoutExercises.Include(we => we.Exercise).Where(workout => workout.WorkoutId == workoutId && workout.Workout.UserId==userId).ToListAsync();
         }
 
         public void Update(WorkoutExercise model)

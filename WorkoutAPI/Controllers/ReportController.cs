@@ -1,36 +1,33 @@
-﻿using Azure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Workout.Application.Common.Dto;
 using Workout.Application.Services.Interface;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using WorkoutAPI.Common;
+using Asp.Versioning;
 
 namespace WorkoutAPI.Controllers
 {
-    [Route("api/reports")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/reports")]
     [ApiController]
     [Authorize]
     public class ReportController : ControllerBase
     {
         private readonly IWorkoutPlanService _workoutPlanService;
-        private readonly ResponseDto _response;
         public ReportController(IWorkoutPlanService workoutPlanService)
         {
             _workoutPlanService = workoutPlanService;
-            _response = new();
-
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<ActionResult<ApiResponse<WorkoutReportDto>>> Get()
         {
             var response = await _workoutPlanService.GenerateReport(User);
             if (response.IsFailure)
             {
-                return BadRequest(response.Error);
+                return BadRequest(ApiResponse<object>.Fail(response.Error.message));
             }
-            return Ok(response.Values);
+            return Ok(ApiResponse<WorkoutReportDto>.Ok(response.Values));
         }
     }
 }

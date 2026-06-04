@@ -51,7 +51,7 @@ Authorization: Bearer <JWT_TOKEN>
     {
       "userName": "username",
       "email": "user@example.com",
-      "fullName": "Nguyen Van A",
+      "fullName": "string",
       "password": "yourpassword"
     }
     ```
@@ -235,7 +235,7 @@ Authorization: Bearer <JWT_TOKEN>
         "id": "guid-string",
         "workoutId": "guid-string",
         "comment": "Nice session!",
-        "userName": "Nguyen Van A", // Cần JOIN từ bảng users qua UserId
+        "userName": "User Full Name", // Cần JOIN từ bảng users qua UserId
         "userId": "guid-string-user",
         "createdAt": "2026-06-02T16:00:00.000Z" // Map từ cột Date trong Database
       }

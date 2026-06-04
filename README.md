@@ -39,44 +39,66 @@ In this project, the Result Pattern is implemented to handle the flow of operati
 ## Usage
 
 ### Auth
-- **POST** `/auth/login`
-  - **Description**: Authenticates a user  and returns a JWT token.
-  - **Request Body**:
-    ```json
-    {
-      "userName": "user@example.com",
-      "password": "pas5word-*123"
-    }
-    ```
-  - **Response**: JWT token on success.
-    
-- **POST** `/auth/register`
+- **POST** `/api/v1/auth/register`
   - **Description**: Registers a new user in the system.
   - **Request Body**:
     ```json
     {
       "userName": "user@example.com",
       "email": "user@example.com",
-      "fullName": "Nguyen Van A",
+      "fullName": "string",
       "password": "pas5word-*123"
     }
     ```
+
+- **POST** `/api/v1/auth/login`
+  - **Description**: Authenticates a user and returns a JWT token.
+  - **Request Body**:
+    ```json
+    {
+      "userName": "user@example.com",
+      "password": "pas5word-*123"
+    }
+    ```
+  - **Response**: JWT token and user info on success.
+
+- **PUT** `/api/v1/auth/change-password`
+  - **Description**: Changes the current user's password.
+  - **Authentication**: Required.
+  - **Request Body**:
+    ```json
+    {
+      "currentPassword": "pas5word-*123",
+      "newPassword": "newPassword-*123"
+    }
+    ```
+
+- **PUT** `/api/v1/auth/profile`
+  - **Description**: Updates the profile of the current user.
+  - **Authentication**: Required.
+  - **Request Body**:
+    ```json
+    {
+      "fullName": "string",
+      "email": "user@example.com"
+    }
+    ```
+
 ### Exercise
-- **GET** `/exercises`
-    -  **Description** : Retrieve all exercises.
-    -  **Authentication**: Required.
+- **GET** `/api/v1/exercises`
+    - **Description**: Retrieve all exercises.
+    - **Authentication**: Required.
     
-  
 ### Workout
-- **GET** `/workouts/{workout_id}`
-    - **Description** : Retrieve general information about a workout..
-    -  **Authentication**: Required.
+- **GET** `/api/v1/workouts/{workout_id}`
+    - **Description**: Retrieve general information about a workout.
+    - **Authentication**: Required.
   
-- **GET** `/workouts`
-    -  **Description** : Retrieve all workouts **that are already scheduled** .
-    -  **Authentication**: Require.
+- **GET** `/api/v1/workouts`
+    - **Description**: Retrieve all workouts.
+    - **Authentication**: Required.
       
-- **POST** `/workouts`
+- **POST** `/api/v1/workouts`
   - **Description**: Create a new workout.
   - **Authentication**: Required.
   - **Request Body**:
@@ -87,28 +109,27 @@ In this project, the Result Pattern is implemented to handle the flow of operati
     }
     ```
     
-- **PUT** `/workouts`
+- **PUT** `/api/v1/workouts/{id}`
   - **Description**: Update a workout.
   - **Authentication**: Required. 
   - **Request Body**:
     ```json
     {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "name": "string",
       "description": "string"
     }
     ```
   
-- **DELETE** `/workouts/{workout_id}`
+- **DELETE** `/api/v1/workouts/{workout_id}`
   - **Description**: Delete a workout.
   - **Authentication**: Required. 
 
 ### Scheduled Workout
-- **GET** `/workout-schedules`
-  - **Description**: Retrieve a list of workouts scheduled for the future.
+- **GET** `/api/v1/workout-schedules`
+  - **Description**: Retrieve scheduled workouts.
   - **Authentication**: Required. 
   
-- **POST** `/workout-schedules`
+- **POST** `/api/v1/workout-schedules`
   - **Description**: Schedule a workout.
   - **Authentication**: Required.
   - **Request Body**:
@@ -119,28 +140,31 @@ In this project, the Result Pattern is implemented to handle the flow of operati
     }
     ```
   
-- **PUT** `/workout-schedules`
-  - **Description**: Update a scheduled workout..
+- **PUT** `/api/v1/workout-schedules/{id}`
+  - **Description**: Update a scheduled workout date/time.
   - **Authentication**: Required.
   - **Request Body**:
     ```json
     {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "scheduledDate": "2024-10-15T02:25:00.954Z",
       "workoutId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
     }
     ```
+
+- **PUT** `/api/v1/workout-schedules/{id}/complete`
+  - **Description**: Mark a scheduled workout as completed.
+  - **Authentication**: Required.
   
-- **DELETE** `/workout-schedules/{schedule_workout_id}`
+- **DELETE** `/api/v1/workout-schedules/{schedule_workout_id}`
   - **Description**: Delete a scheduled workout.
   - **Authentication**: Required. 
   
-### Workout comments
-- **GET** `/workout-comments/{workout_id}`
+### Workout Comments
+- **GET** `/api/v1/workout-comments/{workout_id}`
   - **Description**: Retrieve all comments from a workout.
   - **Authentication**: Required. 
   
-- **POST** `/workout-comments`
+- **POST** `/api/v1/workout-comments`
   - **Description**: Add a comment to a workout.
   - **Authentication**: Required.
   - **Request Body**:
@@ -151,28 +175,27 @@ In this project, the Result Pattern is implemented to handle the flow of operati
     }
     ```
   
-- **PUT** `/WorkoutComments`
+- **PUT** `/api/v1/workout-comments/{id}`
   - **Description**: Update a comment. 
   - **Authentication**: Required.
   - **Request Body**:
     ```json
     {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "workoutId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "comment": "string"
     }
     ```
     
-- **DELETE** `/workout-comments/{workout_comment_id}`
+- **DELETE** `/api/v1/workout-comments/{workout_comment_id}`
   - **Description**: Delete a comment.
   - **Authentication**: Required.
   
-### Workout exercise
-- **GET** `/workout-exercises/{workout_id}`
+### Workout Exercise
+- **GET** `/api/v1/workout-exercises/{workout_id}`
   - **Description**: Retrieve all exercises from a workout.
   - **Authentication**: Required. 
   
-- **POST** `/workout-exercises`
+- **POST** `/api/v1/workout-exercises`
   - **Description**: Add an exercise to a workout.
   - **Authentication**: Required.
   - **Request Body**:
@@ -186,13 +209,12 @@ In this project, the Result Pattern is implemented to handle the flow of operati
     }
     ```
   
-- **PUT** `/workout-exercises`
+- **PUT** `/api/v1/workout-exercises/{id}`
   - **Description**: Update an exercise from a workout. 
   - **Authentication**: Required.
   - **Request Body**:
     ```json
     {
-      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
       "sets": 5,
       "repetitions": 5,
       "weight": 6,
@@ -201,17 +223,12 @@ In this project, the Result Pattern is implemented to handle the flow of operati
     }
     ```
   
-- **DELETE** `/workout-exercises/{workou_exercise_id}`
+- **DELETE** `/api/v1/workout-exercises/{workout_exercise_id}`
   - **Description**: Delete an exercise from a workout. 
   - **Authentication**: Required.
     
 ### Report
-- **GET** `/reports`
+- **GET** `/api/v1/reports`
   - **Description**: Retrieve a report of the recent workouts.
   - **Authentication**: Required.
-    
-## Useful Links
-- [Project detail](https://roadmap.sh/projects/fitness-workout-tracker)
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

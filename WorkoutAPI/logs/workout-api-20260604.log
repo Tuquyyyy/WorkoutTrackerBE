@@ -2696,3 +2696,377 @@ DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
 [2026-06-04 10:01:06 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.AuthController.Login (WorkoutApi)'
 [2026-06-04 10:01:06 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/auth/login responded 200 in 62.4048ms
 [2026-06-04 10:01:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/auth/login - 200 null application/json; charset=utf-8 68.2192ms
+[2026-06-04 13:36:48 INF] : Starting web application
+[2026-06-04 13:36:50 INF] Microsoft.EntityFrameworkCore.Migrations: Applying migration '20260530154734_InitialCreate'.
+[2026-06-04 13:36:50 INF] Microsoft.EntityFrameworkCore.Migrations: Applying migration '20260602160802_AddUserIdToWorkoutComments'.
+[2026-06-04 13:36:50 INF] Microsoft.EntityFrameworkCore.Migrations: Applying migration '20260602204225_AddPerformanceIndexes'.
+[2026-06-04 13:36:50 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\Waylay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-06-04 13:36:50 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5008
+[2026-06-04 13:36:50 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-04 13:36:50 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-04 13:36:50 INF] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Waylay\Downloads\Working\Tuquy\Project\WorkoutTrackerBE\WorkoutAPI
+[2026-06-04 13:37:03 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-04 13:37:25 INF] : Starting web application
+[2026-06-04 13:37:26 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\Waylay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-06-04 13:37:26 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5008
+[2026-06-04 13:37:26 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-04 13:37:26 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-04 13:37:26 INF] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Waylay\Downloads\Working\Tuquy\Project\WorkoutTrackerBE\WorkoutAPI
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/auth/register - null null
+[2026-06-04 13:38:21 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:21 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/auth/register responded 204 in 4.9064ms
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/auth/register - 204 null null 85.4109ms
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/auth/register - application/json 87
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.AuthController.Register (WorkoutApi)'
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.String]]] Register(Workout.Application.Common.Dto.RegisterRequestDto) on controller WorkoutAPI.Controllers.AuthController (WorkoutApi).
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.AuthController.Register (WorkoutApi) in 500.0542ms
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.AuthController.Register (WorkoutApi)'
+[2026-06-04 13:38:21 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/auth/register responded 200 in 574.5366ms
+[2026-06-04 13:38:21 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/auth/register - 200 null application/json; charset=utf-8 591.564ms
+[2026-06-04 13:38:54 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/auth/login - null null
+[2026-06-04 13:38:54 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:54 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/auth/login responded 204 in 1.8987ms
+[2026-06-04 13:38:54 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/auth/login - 204 null null 11.3832ms
+[2026-06-04 13:38:54 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/auth/login - application/json 44
+[2026-06-04 13:38:54 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:54 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.AuthController.Login (WorkoutApi)'
+[2026-06-04 13:38:54 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[Workout.Application.Common.Dto.LoginResponseDto]]] Login(Workout.Application.Common.Dto.LoginRequestDto) on controller WorkoutAPI.Controllers.AuthController (WorkoutApi).
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[Workout.Application.Common.Dto.LoginResponseDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.AuthController.Login (WorkoutApi) in 205.1335ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.AuthController.Login (WorkoutApi)'
+[2026-06-04 13:38:55 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/auth/login responded 200 in 225.7223ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/auth/login - 200 null application/json; charset=utf-8 234.7842ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules - null null
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/reports - null null
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - null null
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/exercises - null null
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:55 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workout-schedules responded 204 in 14.6316ms
+[2026-06-04 13:38:55 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/reports responded 204 in 11.7984ms
+[2026-06-04 13:38:55 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workouts responded 204 in 8.1756ms
+[2026-06-04 13:38:55 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/exercises responded 204 in 6.2090ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules - 204 null null 30.8892ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/reports - 204 null null 32.2997ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - 204 null null 34.8508ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/exercises - 204 null null 37.8256ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules - null null
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/reports - null null
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workouts - null null
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/exercises - null null
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi)'
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ReportController.Get (WorkoutApi)'
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ExerciseController.Get (WorkoutApi)'
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Schedule"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.ScheduleWorkoutDto]]]] Get() on controller WorkoutAPI.Controllers.ScheduleController (WorkoutApi).
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[Workout.Application.Common.Dto.WorkoutReportDto]]] Get() on controller WorkoutAPI.Controllers.ReportController (WorkoutApi).
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Exercise"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Domain.Entities.Exercise]]]] Get() on controller WorkoutAPI.Controllers.ExerciseController (WorkoutApi).
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "WorkoutPlan"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.WorkoutPlanResponseDto]]]] Get() on controller WorkoutAPI.Controllers.WorkoutPlanController (WorkoutApi).
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Domain.Entities.Exercise, Workout.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ExerciseController.Get (WorkoutApi) in 45.6976ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ExerciseController.Get (WorkoutApi)'
+[2026-06-04 13:38:55 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/exercises responded 200 in 133.6800ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/exercises - 200 null application/json; charset=utf-8 160.0063ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.WorkoutPlanResponseDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.ScheduleWorkoutDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi) in 84.2314ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[Workout.Application.Common.Dto.WorkoutReportDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 13:38:55 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workouts responded 200 in 189.3087ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi) in 110.1652ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workouts - 200 null application/json; charset=utf-8 219.3057ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi)'
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ReportController.Get (WorkoutApi) in 118.2309ms
+[2026-06-04 13:38:55 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workout-schedules responded 200 in 212.4821ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ReportController.Get (WorkoutApi)'
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules - 200 null application/json; charset=utf-8 249.0198ms
+[2026-06-04 13:38:55 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/reports responded 200 in 217.4156ms
+[2026-06-04 13:38:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/reports - 200 null application/json; charset=utf-8 254.2866ms
+[2026-06-04 13:42:20 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-04 13:43:14 INF] : Starting web application
+[2026-06-04 18:36:38 INF] : Starting web application
+[2026-06-04 18:36:39 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\Waylay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-06-04 18:36:39 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5008
+[2026-06-04 18:36:39 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-04 18:36:39 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-04 18:36:39 INF] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Waylay\Downloads\Working\Tuquy\Project\WorkoutTrackerBE\WorkoutAPI
+[2026-06-04 18:37:10 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/auth/login - null null
+[2026-06-04 18:37:10 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-04 18:37:10 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:10 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/auth/login responded 204 in 4.1771ms
+[2026-06-04 18:37:10 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/auth/login - 204 null null 91.7989ms
+[2026-06-04 18:37:10 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/auth/login - application/json 43
+[2026-06-04 18:37:10 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:10 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.AuthController.Login (WorkoutApi)'
+[2026-06-04 18:37:10 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[Workout.Application.Common.Dto.LoginResponseDto]]] Login(Workout.Application.Common.Dto.LoginRequestDto) on controller WorkoutAPI.Controllers.AuthController (WorkoutApi).
+[2026-06-04 18:37:11 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing BadRequestObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:37:11 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.AuthController.Login (WorkoutApi) in 498.7135ms
+[2026-06-04 18:37:11 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.AuthController.Login (WorkoutApi)'
+[2026-06-04 18:37:11 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/auth/login responded 400 in 588.5469ms
+[2026-06-04 18:37:11 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/auth/login - 400 null application/json; charset=utf-8 610.971ms
+[2026-06-04 18:37:18 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/auth/login - null null
+[2026-06-04 18:37:18 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:18 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/auth/login responded 204 in 2.1518ms
+[2026-06-04 18:37:18 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/auth/login - 204 null null 10.1758ms
+[2026-06-04 18:37:18 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/auth/login - application/json 44
+[2026-06-04 18:37:18 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:18 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.AuthController.Login (WorkoutApi)'
+[2026-06-04 18:37:18 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[Workout.Application.Common.Dto.LoginResponseDto]]] Login(Workout.Application.Common.Dto.LoginRequestDto) on controller WorkoutAPI.Controllers.AuthController (WorkoutApi).
+[2026-06-04 18:37:18 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[Workout.Application.Common.Dto.LoginResponseDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.AuthController.Login (WorkoutApi) in 157.9917ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.AuthController.Login (WorkoutApi)'
+[2026-06-04 18:37:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/auth/login responded 200 in 169.6661ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/auth/login - 200 null application/json; charset=utf-8 176.8041ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules - null null
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/reports - null null
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - null null
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/exercises - null null
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workout-schedules responded 204 in 12.4678ms
+[2026-06-04 18:37:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/reports responded 204 in 10.3805ms
+[2026-06-04 18:37:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workouts responded 204 in 8.0065ms
+[2026-06-04 18:37:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/exercises responded 204 in 5.5229ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules - 204 null null 24.461ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/reports - 204 null null 25.9256ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - 204 null null 28.6961ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/exercises - 204 null null 31.513ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules - null null
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/reports - null null
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workouts - null null
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/exercises - null null
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ExerciseController.Get (WorkoutApi)'
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ReportController.Get (WorkoutApi)'
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi)'
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "WorkoutPlan"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.WorkoutPlanResponseDto]]]] Get() on controller WorkoutAPI.Controllers.WorkoutPlanController (WorkoutApi).
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Exercise"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Domain.Entities.Exercise]]]] Get() on controller WorkoutAPI.Controllers.ExerciseController (WorkoutApi).
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[Workout.Application.Common.Dto.WorkoutReportDto]]] Get() on controller WorkoutAPI.Controllers.ReportController (WorkoutApi).
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Schedule"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.ScheduleWorkoutDto]]]] Get() on controller WorkoutAPI.Controllers.ScheduleController (WorkoutApi).
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Domain.Entities.Exercise, Workout.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ExerciseController.Get (WorkoutApi) in 34.7584ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ExerciseController.Get (WorkoutApi)'
+[2026-06-04 18:37:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/exercises responded 200 in 97.0997ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/exercises - 200 null application/json; charset=utf-8 120.1431ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.WorkoutPlanResponseDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[Workout.Application.Common.Dto.WorkoutReportDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.ScheduleWorkoutDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi) in 75.7275ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 18:37:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workouts responded 200 in 140.2593ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workouts - 200 null application/json; charset=utf-8 162.6275ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ReportController.Get (WorkoutApi) in 77.9487ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi) in 75.4809ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ReportController.Get (WorkoutApi)'
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi)'
+[2026-06-04 18:37:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/reports responded 200 in 161.0079ms
+[2026-06-04 18:37:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workout-schedules responded 200 in 163.4657ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/reports - 200 null application/json; charset=utf-8 186.7ms
+[2026-06-04 18:37:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules - 200 null application/json; charset=utf-8 195.014ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - null null
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workouts responded 204 in 2.0449ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - 204 null null 9.205ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/workouts - application/json 115
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Post (WorkoutApi)'
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Post", controller = "WorkoutPlan"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[Workout.Application.Common.Dto.WorkoutPlanDto]]] Post(Workout.Application.Common.Dto.WorkoutPlanDto) on controller WorkoutAPI.Controllers.WorkoutPlanController (WorkoutApi).
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[Workout.Application.Common.Dto.WorkoutPlanDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutPlanController.Post (WorkoutApi) in 151.9357ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Post (WorkoutApi)'
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/workouts responded 200 in 167.7489ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/workouts - 200 null application/json; charset=utf-8 175.3763ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-exercises - null null
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workout-exercises responded 204 in 1.6694ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-exercises - 204 null null 9.4354ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/workout-exercises - application/json 105
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutExerciseController.Post (WorkoutApi)'
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Post", controller = "WorkoutExercise"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.String]]] Post(Workout.Application.Common.Dto.WorkoutExerciseDto) on controller WorkoutAPI.Controllers.WorkoutExerciseController (WorkoutApi).
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutExerciseController.Post (WorkoutApi) in 61.0661ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutExerciseController.Post (WorkoutApi)'
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/workout-exercises responded 200 in 75.2009ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/workout-exercises - 200 null application/json; charset=utf-8 82.5272ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/workout-exercises - application/json 105
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutExerciseController.Post (WorkoutApi)'
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Post", controller = "WorkoutExercise"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.String]]] Post(Workout.Application.Common.Dto.WorkoutExerciseDto) on controller WorkoutAPI.Controllers.WorkoutExerciseController (WorkoutApi).
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutExerciseController.Post (WorkoutApi) in 10.8748ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutExerciseController.Post (WorkoutApi)'
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/workout-exercises responded 200 in 22.7722ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/workout-exercises - 200 null application/json; charset=utf-8 30.0263ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/workout-exercises - application/json 105
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutExerciseController.Post (WorkoutApi)'
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Post", controller = "WorkoutExercise"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.String]]] Post(Workout.Application.Common.Dto.WorkoutExerciseDto) on controller WorkoutAPI.Controllers.WorkoutExerciseController (WorkoutApi).
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutExerciseController.Post (WorkoutApi) in 11.336ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutExerciseController.Post (WorkoutApi)'
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/workout-exercises responded 200 in 23.4826ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/workout-exercises - 200 null application/json; charset=utf-8 30.9542ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts/44311dad-4196-495d-b102-46897d3f0e69 - null null
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-exercises/44311dad-4196-495d-b102-46897d3f0e69 - null null
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-comments/44311dad-4196-495d-b102-46897d3f0e69 - null null
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules/workout/44311dad-4196-495d-b102-46897d3f0e69 - null null
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workouts/44311dad-4196-495d-b102-46897d3f0e69 responded 204 in 16.6773ms
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workout-exercises/44311dad-4196-495d-b102-46897d3f0e69 responded 204 in 12.8759ms
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workout-comments/44311dad-4196-495d-b102-46897d3f0e69 responded 204 in 10.4328ms
+[2026-06-04 18:40:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workout-schedules/workout/44311dad-4196-495d-b102-46897d3f0e69 responded 204 in 6.2711ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts/44311dad-4196-495d-b102-46897d3f0e69 - 204 null null 32.3798ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-exercises/44311dad-4196-495d-b102-46897d3f0e69 - 204 null null 35.6577ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-comments/44311dad-4196-495d-b102-46897d3f0e69 - 204 null null 37.969ms
+[2026-06-04 18:40:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules/workout/44311dad-4196-495d-b102-46897d3f0e69 - 204 null null 40.1684ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workouts/44311dad-4196-495d-b102-46897d3f0e69 - null null
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workout-exercises/44311dad-4196-495d-b102-46897d3f0e69 - null null
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workout-comments/44311dad-4196-495d-b102-46897d3f0e69 - null null
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules/workout/44311dad-4196-495d-b102-46897d3f0e69 - null null
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutExerciseController.Get (WorkoutApi)'
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutCommentsController.Get (WorkoutApi)'
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ScheduleController.GetByWorkoutId (WorkoutApi)'
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "WorkoutPlan"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[Workout.Application.Common.Dto.WorkoutPlanDto]]] Get(System.Guid) on controller WorkoutAPI.Controllers.WorkoutPlanController (WorkoutApi).
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "WorkoutExercise"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.WorkoutExerciseDto]]]] Get(System.Guid) on controller WorkoutAPI.Controllers.WorkoutExerciseController (WorkoutApi).
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "WorkoutComments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.WorkoutCommentsDto]]]] Get(System.Guid) on controller WorkoutAPI.Controllers.WorkoutCommentsController (WorkoutApi).
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "GetByWorkoutId", controller = "Schedule"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.ScheduleWorkoutDto]]]] GetByWorkoutId(System.Guid) on controller WorkoutAPI.Controllers.ScheduleController (WorkoutApi).
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[Workout.Application.Common.Dto.WorkoutPlanDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi) in 15.6215ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 18:40:49 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workouts/44311dad-4196-495d-b102-46897d3f0e69 responded 200 in 58.1591ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.ScheduleWorkoutDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workouts/44311dad-4196-495d-b102-46897d3f0e69 - 200 null application/json; charset=utf-8 87.4012ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ScheduleController.GetByWorkoutId (WorkoutApi) in 17.3593ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.WorkoutCommentsDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ScheduleController.GetByWorkoutId (WorkoutApi)'
+[2026-06-04 18:40:49 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workout-schedules/workout/44311dad-4196-495d-b102-46897d3f0e69 responded 200 in 67.0839ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.WorkoutExerciseDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules/workout/44311dad-4196-495d-b102-46897d3f0e69 - 200 null application/json; charset=utf-8 91.7808ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutCommentsController.Get (WorkoutApi) in 42.1594ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutExerciseController.Get (WorkoutApi) in 54.0927ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutCommentsController.Get (WorkoutApi)'
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutExerciseController.Get (WorkoutApi)'
+[2026-06-04 18:40:49 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workout-comments/44311dad-4196-495d-b102-46897d3f0e69 responded 200 in 95.1043ms
+[2026-06-04 18:40:49 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workout-exercises/44311dad-4196-495d-b102-46897d3f0e69 responded 200 in 102.5193ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workout-comments/44311dad-4196-495d-b102-46897d3f0e69 - 200 null application/json; charset=utf-8 123.6993ms
+[2026-06-04 18:40:49 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workout-exercises/44311dad-4196-495d-b102-46897d3f0e69 - 200 null application/json; charset=utf-8 134.1116ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - null null
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:42:01 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workouts responded 204 in 1.5812ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - 204 null null 8.7684ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/workouts - application/json 59
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Post (WorkoutApi)'
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Post", controller = "WorkoutPlan"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[Workout.Application.Common.Dto.WorkoutPlanDto]]] Post(Workout.Application.Common.Dto.WorkoutPlanDto) on controller WorkoutAPI.Controllers.WorkoutPlanController (WorkoutApi).
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[Workout.Application.Common.Dto.WorkoutPlanDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutPlanController.Post (WorkoutApi) in 24.5897ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Post (WorkoutApi)'
+[2026-06-04 18:42:01 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/workouts responded 200 in 35.1904ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/workouts - 200 null application/json; charset=utf-8 41.8403ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules - null null
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workouts - null null
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:42:01 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workout-schedules responded 204 in 5.0259ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules - 204 null null 13.3907ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "WorkoutPlan"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.WorkoutPlanResponseDto]]]] Get() on controller WorkoutAPI.Controllers.WorkoutPlanController (WorkoutApi).
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 POST http://localhost:5008/api/v1/workout-schedules - application/json 95
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ScheduleController.Post (WorkoutApi)'
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.WorkoutPlanResponseDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Post", controller = "Schedule"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.String]]] Post(Workout.Application.Common.Dto.ScheduleWorkoutDto) on controller WorkoutAPI.Controllers.ScheduleController (WorkoutApi).
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi) in 15.995ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 18:42:01 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workouts responded 200 in 34.3722ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workouts - 200 null application/json; charset=utf-8 45.0609ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ScheduleController.Post (WorkoutApi) in 34.5193ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ScheduleController.Post (WorkoutApi)'
+[2026-06-04 18:42:01 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/workout-schedules responded 200 in 50.2598ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 POST http://localhost:5008/api/v1/workout-schedules - 200 null application/json; charset=utf-8 59.8081ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules - null null
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi)'
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Schedule"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.ScheduleWorkoutDto]]]] Get() on controller WorkoutAPI.Controllers.ScheduleController (WorkoutApi).
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.ScheduleWorkoutDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi) in 13.5491ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi)'
+[2026-06-04 18:42:01 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workout-schedules responded 200 in 25.0550ms
+[2026-06-04 18:42:01 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules - 200 null application/json; charset=utf-8 32.9681ms
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/exercises - null null
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:46:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/exercises responded 204 in 1.7002ms
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/exercises - 204 null null 9.8072ms
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/exercises - null null
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ExerciseController.Get (WorkoutApi)'
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Exercise"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Domain.Entities.Exercise]]]] Get() on controller WorkoutAPI.Controllers.ExerciseController (WorkoutApi).
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Domain.Entities.Exercise, Workout.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ExerciseController.Get (WorkoutApi) in 13.4554ms
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ExerciseController.Get (WorkoutApi)'
+[2026-06-04 18:46:48 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/exercises responded 200 in 24.7238ms
+[2026-06-04 18:46:48 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/exercises - 200 null application/json; charset=utf-8 31.9909ms
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/reports - null null
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:46:50 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/reports responded 204 in 1.9888ms
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/reports - 204 null null 10.9643ms
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/reports - null null
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ReportController.Get (WorkoutApi)'
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[Workout.Application.Common.Dto.WorkoutReportDto]]] Get() on controller WorkoutAPI.Controllers.ReportController (WorkoutApi).
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[Workout.Application.Common.Dto.WorkoutReportDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ReportController.Get (WorkoutApi) in 21.6405ms
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ReportController.Get (WorkoutApi)'
+[2026-06-04 18:46:50 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/reports responded 200 in 31.8047ms
+[2026-06-04 18:46:50 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/reports - 200 null application/json; charset=utf-8 38.0589ms
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - null null
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules - null null
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:47:02 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workouts responded 204 in 4.5454ms
+[2026-06-04 18:47:02 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/v1/workout-schedules responded 204 in 2.3908ms
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workouts - 204 null null 12.7331ms
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 OPTIONS http://localhost:5008/api/v1/workout-schedules - 204 null null 14.8845ms
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workouts - null null
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules - null null
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: CORS policy execution successful.
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executing endpoint 'WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi)'
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "WorkoutPlan"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.WorkoutPlanResponseDto]]]] Get() on controller WorkoutAPI.Controllers.WorkoutPlanController (WorkoutApi).
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Route matched with {action = "Get", controller = "Schedule"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WorkoutAPI.Common.ApiResponse`1[System.Collections.Generic.IEnumerable`1[Workout.Application.Common.Dto.ScheduleWorkoutDto]]]] Get() on controller WorkoutAPI.Controllers.ScheduleController (WorkoutApi).
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.WorkoutPlanResponseDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi) in 12.4788ms
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing OkObjectResult, writing value of type 'WorkoutAPI.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[Workout.Application.Common.Dto.ScheduleWorkoutDto, Workout.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.WorkoutPlanController.Get (WorkoutApi)'
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker: Executed action WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi) in 14.4226ms
+[2026-06-04 18:47:02 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workouts responded 200 in 32.2794ms
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware: Executed endpoint 'WorkoutAPI.Controllers.ScheduleController.Get (WorkoutApi)'
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workouts - 200 null application/json; charset=utf-8 46.7196ms
+[2026-06-04 18:47:02 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/workout-schedules responded 200 in 36.1978ms
+[2026-06-04 18:47:02 INF] Microsoft.AspNetCore.Hosting.Diagnostics: Request finished HTTP/1.1 GET http://localhost:5008/api/v1/workout-schedules - 200 null application/json; charset=utf-8 52.6686ms

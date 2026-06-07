@@ -6,9 +6,9 @@ DELETE FROM [dbo].[users];
 DELETE FROM [dbo].[exercises];
 
 DBCC CHECKIDENT ('[dbo].[exercises]', RESEED, 0);
--- 123456
+-- pas5word-*123
 INSERT INTO [dbo].[users] ([Id], [FullName], [Email], [UserName], [Password]) VALUES
-('11111111-1111-1111-1111-111111111111', 'User Full Name', 'user@example.com', 'testuser', 'AQAAAAIAAYagAAAAENTbY994xLX1ssr1jWTdkW2dC2czGuG9w6iDenfZgeFScGMTQq4t/EqVHyZykU2+qQ==');
+('11111111-1111-1111-1111-111111111111', 'User Full Name', 'user@example.com', 'testuser', 'AQAAAAIAAYagAAAAEBcU/xof49BqYC/l4xY39c3CfAPaNGssQONUYlU6MALNX7e9Bihk2R2kF+3Qz2N9kw=='); 
 
 INSERT INTO [dbo].[exercises] ([Name], [Description], [Category]) VALUES
 ('Barbell Bench Press', 'A classic compound lift targeting the chest, shoulders, and triceps.', 'Chest'), -- ID = 1
@@ -59,11 +59,11 @@ INSERT INTO [dbo].[workoutExercises] ([Id], [ExerciseId], [WorkoutId], [Sets], [
 
 INSERT INTO [dbo].[scheduleWorkouts] ([Id], [ScheduledDate], [WorkoutId], [IsCompleted]) VALUES
 ('C1111111-1111-1111-1111-111111111111', 
- DATEADD(hh, 8, DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - 4, 0)), 
+ DATEADD(hh, 8, DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - 9, 0)), 
  'F1111111-1111-1111-1111-111111111111', 
  1), 
 ('C2222222-2222-2222-2222-222222222222', 
- DATEADD(mi, 30, DATEADD(hh, 17, DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - 3, 0))), 
+ DATEADD(mi, 30, DATEADD(hh, 17, DATEADD(dd, DATEDIFF(dd, 0, GETDATE()) - 8, 0))), 
  'F2222222-2222-2222-2222-222222222222', 
  1), 
 ('C3333333-3333-3333-3333-333333333333', 
